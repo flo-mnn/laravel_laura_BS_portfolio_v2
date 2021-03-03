@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Experience;
 use Illuminate\Http\Request;
 
 class ExperienceController extends Controller
@@ -34,16 +35,27 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $experience = new Experience();
+        $experience->title = $request->title;
+        $experience->start_date = $request->start_date;
+        $experience->end_date = $request->end_date;
+        $experience->place = $request->place;
+        $experience->task1 = $request->task1;
+        $experience->task2 = $request->task2;
+        $experience->task3 = $request->task3;
+        $experience->task4 = $request->task4;
+        $experience->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Experience  $experience
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Experience $experience)
     {
         //
     }
@@ -51,10 +63,10 @@ class ExperienceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Experience  $experience
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Experience $experience)
     {
         //
     }
@@ -63,22 +75,34 @@ class ExperienceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Experience  $experience
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Experience $experience)
     {
-        //
+        $experience->title = $request->title;
+        $experience->start_date = $request->start_date;
+        $experience->end_date = $request->end_date;
+        $experience->place = $request->place;
+        $experience->task1 = $request->task1;
+        $experience->task2 = $request->task2;
+        $experience->task3 = $request->task3;
+        $experience->task4 = $request->task4;
+        $experience->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Experience  $experience
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Experience $experience)
     {
-        //
+        $experience->delete();
+
+        return redirect()->back();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Footer;
 use Illuminate\Http\Request;
 
 class FooterController extends Controller
@@ -34,16 +35,26 @@ class FooterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $footer = new Footer();
+        $footer->title = $request->title;
+        $footer->subtitle = $request->subtitle;
+        $footer->copyright = $request->copyright;
+        $footer->designed = $request->designed;
+        $footer->link_name = $request->link_name;
+        $footer->link = $request->link;
+        
+        $footer->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Footer $footer)
     {
         //
     }
@@ -51,10 +62,10 @@ class FooterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Footer $footer)
     {
         //
     }
@@ -63,22 +74,33 @@ class FooterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Footer $footer)
     {
-        //
+        $footer->title = $request->title;
+        $footer->subtitle = $request->subtitle;
+        $footer->copyright = $request->copyright;
+        $footer->designed = $request->designed;
+        $footer->link_name = $request->link_name;
+        $footer->link = $request->link;
+        
+        $footer->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Footer  $footer
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Footer $footer)
     {
-        //
+        // $footer->delete();
+
+        // return redirect()->delete();
     }
 }

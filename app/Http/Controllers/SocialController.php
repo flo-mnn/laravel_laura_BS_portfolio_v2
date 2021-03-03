@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Social;
 use Illuminate\Http\Request;
 
 class SocialController extends Controller
@@ -34,16 +35,22 @@ class SocialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $social = new Social();
+        $social->icon = $request->icon;
+        $social->url = $request->url;
+          
+        $social->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Social  $social
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Social $social)
     {
         //
     }
@@ -51,10 +58,10 @@ class SocialController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Social  $social
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Social $social)
     {
         //
     }
@@ -63,22 +70,28 @@ class SocialController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Social  $social
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Social $social)
     {
-        //
+        $social->icon = $request->icon;
+        $social->url = $request->url;
+          
+        $social->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Social  $social
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Social $social)
     {
-        //
+        $social->delete();
+        return redirect()->back();
     }
 }

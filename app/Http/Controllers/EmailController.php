@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Email;
 use Illuminate\Http\Request;
 
 class EmailController extends Controller
@@ -34,16 +35,20 @@ class EmailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $email = new Email();
+        $email->email = $request->email;
+        $email->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Email  $email
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Email $email)
     {
         //
     }
@@ -51,10 +56,10 @@ class EmailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Email  $email
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Email $email)
     {
         //
     }
@@ -63,22 +68,27 @@ class EmailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Email  $email
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Email $email)
     {
-        //
+        $email->email = $request->email;
+        $email->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Email  $email
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Email $email)
     {
-        //
+        $email->delete();
+        
+        return redirect()->back();
     }
 }

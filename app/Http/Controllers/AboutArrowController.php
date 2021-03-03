@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutArrow;
 use Illuminate\Http\Request;
 
 class AboutArrowController extends Controller
@@ -34,16 +35,21 @@ class AboutArrowController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $arrow = new AboutArrow;
+        $arrow->title = $request->title;
+        $arrow->info = $request->info;
+        $arrow->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\AboutArrow  $aboutArrow
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(AboutArrow $aboutArrow)
     {
         //
     }
@@ -51,10 +57,10 @@ class AboutArrowController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\AboutArrow  $aboutArrow
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(AboutArrow $aboutArrow)
     {
         //
     }
@@ -63,22 +69,29 @@ class AboutArrowController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\AboutArrow  $aboutArrow
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, AboutArrow $aboutArrow)
     {
-        //
+        
+        $aboutArrow->title = $request->title;
+        $aboutArrow->info = $request->info;
+        $aboutArrow->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\AboutArrow  $aboutArrow
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(AboutArrow $aboutArrow)
     {
-        //
+        $aboutArrow->delete();
+
+        return redirect()->back();
     }
 }

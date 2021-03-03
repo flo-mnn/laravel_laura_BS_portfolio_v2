@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Navlink;
 use Illuminate\Http\Request;
 
 class NavlinkController extends Controller
@@ -34,16 +35,22 @@ class NavlinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $navlink = new Navlink();
+        $navlink->link = $request->link;
+        
+        
+        $navlink->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Navlink  $navlink
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Navlink $navlink)
     {
         //
     }
@@ -51,10 +58,10 @@ class NavlinkController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Navlink  $navlink
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Navlink $navlink)
     {
         //
     }
@@ -63,22 +70,28 @@ class NavlinkController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Navlink  $navlink
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Navlink $navlink)
     {
-        //
+        $navlink->link = $request->link;
+        
+        
+        $navlink->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Navlink  $navlink
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Navlink $navlink)
     {
-        //
+        // $navlink->delete();
+        // return redirect()->back();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Phone;
 use Illuminate\Http\Request;
 
 class PhoneController extends Controller
@@ -34,16 +35,22 @@ class PhoneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $phone = new Phone();
+        $phone->phone = $request->phone;
+        
+        
+        $phone->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Phone  $phone
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Phone $phone)
     {
         //
     }
@@ -51,10 +58,10 @@ class PhoneController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Phone  $phone
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Phone $phone)
     {
         //
     }
@@ -63,22 +70,29 @@ class PhoneController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Phone  $phone
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Phone $phone)
     {
-        //
+        $phone->phone = $request->phone;
+        
+        
+        $phone->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Phone  $phone
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Phone $phone)
     {
-        //
+        $phone->delete();
+
+        return redirect()->back();
     }
 }

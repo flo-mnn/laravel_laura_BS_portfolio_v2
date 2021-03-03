@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PortfolioFilter;
 use Illuminate\Http\Request;
 
 class PortfolioFilterController extends Controller
@@ -34,16 +35,21 @@ class PortfolioFilterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $portfolioFilter = new PortfolioFilter();
+        $portfolioFilter->filter = $request->filter;
+    
+        $portfolioFilter->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\PortfolioFilter  $portfolioFilter
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(PortfolioFilter $portfolioFilter)
     {
         //
     }
@@ -51,10 +57,10 @@ class PortfolioFilterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\PortfolioFilter  $portfolioFilter
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(PortfolioFilter $portfolioFilter)
     {
         //
     }
@@ -63,21 +69,25 @@ class PortfolioFilterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\PortfolioFilter  $portfolioFilter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, PortfolioFilter $portfolioFilter)
     {
-        //
+        $portfolioFilter->filter = $request->filter;
+    
+        $portfolioFilter->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\PortfolioFilter  $portfolioFilter
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(PortfolioFilter $portfolioFilter)
     {
         //
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PortfolioItem;
 use Illuminate\Http\Request;
 
 class PortfolioItemController extends Controller
@@ -34,16 +35,25 @@ class PortfolioItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $portfolioItem = new PortfolioItem();
+        $portfolioItem->title = $request->title;
+        $portfolioItem->cover_src = $request->cover_src;
+        $portfolioItem->filter = $request->filter;
+        $portfolioItem->url = $request->url;
+        
+        
+        $portfolioItem->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\PortfolioItem  $portfolioItem
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(PortfolioItem $portfolioItem)
     {
         //
     }
@@ -51,10 +61,10 @@ class PortfolioItemController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\PortfolioItem  $portfolioItem
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(PortfolioItem $portfolioItem)
     {
         //
     }
@@ -63,22 +73,31 @@ class PortfolioItemController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\PortfolioItem  $portfolioItem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, PortfolioItem $portfolioItem)
     {
-        //
+        $portfolioItem->title = $request->title;
+        $portfolioItem->cover_src = $request->cover_src;
+        $portfolioItem->filter = $request->filter;
+        $portfolioItem->url = $request->url;
+        
+        
+        $portfolioItem->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\PortfolioItem  $portfolioItem
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(PortfolioItem $portfolioItem)
     {
-        //
+        $portfolioItem->delete();
+        return redirect()->back();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ResumeSubtitle;
 use Illuminate\Http\Request;
 
 class ResumeSubtitleController extends Controller
@@ -40,10 +41,10 @@ class ResumeSubtitleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\ResumeSubtitle  $resumeSubtitle
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ResumeSubtitle $resumeSubtitle)
     {
         //
     }
@@ -51,10 +52,10 @@ class ResumeSubtitleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\ResumeSubtitle  $resumeSubtitle
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ResumeSubtitle $resumeSubtitle)
     {
         //
     }
@@ -63,21 +64,25 @@ class ResumeSubtitleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\ResumeSubtitle  $resumeSubtitle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ResumeSubtitle $resumeSubtitle)
     {
-        //
+        $resumeSubtitle->title = $request->title;
+          
+        $resumeSubtitle->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\ResumeSubtitle  $resumeSubtitle
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ResumeSubtitle $resumeSubtitle)
     {
         //
     }

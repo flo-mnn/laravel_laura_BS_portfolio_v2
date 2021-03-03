@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Education;
 use Illuminate\Http\Request;
 
 class EducationController extends Controller
@@ -34,16 +35,24 @@ class EducationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $education = new Education();
+        $education->title = $request->title;
+        $education->start_date = $request->start_date;
+        $education->end_date = $request->end_date;
+        $education->place = $request->place;
+        $education->text = $request->text;
+        $education->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Education $education)
     {
         //
     }
@@ -51,10 +60,10 @@ class EducationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Education $education)
     {
         //
     }
@@ -63,22 +72,31 @@ class EducationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Education $education)
     {
-        //
+        $education->title = $request->title;
+        $education->start_date = $request->start_date;
+        $education->end_date = $request->end_date;
+        $education->place = $request->place;
+        $education->text = $request->text;
+        $education->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Education  $education
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Education $education)
     {
-        //
+        $education->delete();
+
+        return redirect()->back();
     }
 }

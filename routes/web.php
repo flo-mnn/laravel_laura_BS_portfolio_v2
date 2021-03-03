@@ -1,5 +1,21 @@
 <?php
 
+use App\Http\Controllers\AboutArrowController;
+use App\Http\Controllers\AboutDigitalSkillController;
+use App\Http\Controllers\AboutNumberController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\FooterController;
+use App\Http\Controllers\NavlinkController;
+use App\Http\Controllers\PageImageController;
+use App\Http\Controllers\PhoneController;
+use App\Http\Controllers\PortfolioFilterController;
+use App\Http\Controllers\PortfolioItemController;
+use App\Http\Controllers\ResumeSubtitleController;
+use App\Http\Controllers\ResumeSummaryController;
+use App\Http\Controllers\SocialController;
+use App\Http\Controllers\TitleController;
 use App\Models\AboutArrow;
 use App\Models\AboutDigitalSkill;
 use App\Models\AboutNumber;
@@ -115,3 +131,22 @@ Route::get('/bo/resume',function(){
         'experiences'=>Experience::all(),
     ]);
 });
+
+
+// ressources
+Route::resource('about_arrows', AboutArrowController::class);
+Route::resource('about_digital_skills', AboutDigitalSkillController::class);
+Route::resource('about_numbers', AboutNumberController::class);
+Route::resource('education', EducationController::class);
+Route::resource('emails',EmailController::class);
+Route::resource('experiences',ExperienceController::class);
+Route::resource('footers',FooterController::class);
+Route::resource('navlinks',NavlinkController::class);
+Route::resource('page_images',PageImageController::class);
+Route::resource('phones',PhoneController::class);
+Route::resource('portfolio_filters',PortfolioFilterController::class);
+Route::resource('portfolio_items',PortfolioItemController::class);
+Route::resource('resume_subtitles',ResumeSubtitleController::class);
+Route::resource('resume_summaries',ResumeSummaryController::class);
+Route::resource('socials',SocialController::class);
+Route::resource('titles',TitleController::class);

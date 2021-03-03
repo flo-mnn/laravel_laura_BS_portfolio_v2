@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutNumber;
 use Illuminate\Http\Request;
 
 class AboutNumberController extends Controller
@@ -34,16 +35,24 @@ class AboutNumberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aboutNumber = new AboutNumber();
+        $aboutNumber->icon = $request->icon;
+        $aboutNumber->icon_color = $request->icon_color;
+        $aboutNumber->number = $request->number;
+        $aboutNumber->emphasis = $request->emphasis;
+        $aboutNumber->text = $request->text;
+        $aboutNumber->save();
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\AboutNumber  $aboutNumber
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(AboutNumber $aboutNumber)
     {
         //
     }
@@ -51,10 +60,10 @@ class AboutNumberController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\AboutNumber  $aboutNumber
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(AboutNumber $aboutNumber)
     {
         //
     }
@@ -63,22 +72,31 @@ class AboutNumberController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\AboutNumber  $aboutNumber
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, AboutNumber $aboutNumber)
     {
-        //
+        $aboutNumber->icon = $request->icon;
+        $aboutNumber->icon_color = $request->icon_color;
+        $aboutNumber->number = $request->number;
+        $aboutNumber->emphasis = $request->emphasis;
+        $aboutNumber->text = $request->text;
+        $aboutNumber->save();
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\AboutNumber  $aboutNumber
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(AboutNumber $aboutNumber)
     {
-        //
+        $aboutNumber->delete();
+
+        return redirect()->back();
     }
 }
