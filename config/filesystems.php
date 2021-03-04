@@ -36,10 +36,18 @@ return [
         ],
 
         'public' => [
+            // no storagePublicly
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
+
+            // // storagePublicly
+            // 'driver' => 'local',
+            // 'root' => public_path() . '/',
+            // 'url' => env('APP_URL').'/public',
+            // 'visibility' => 'public',
+
         ],
 
         's3' => [

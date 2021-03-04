@@ -7,7 +7,7 @@
     </div>
     <div class="form-group">
       <label for="subtitle" class="text-capitalize">subtitle</label>
-      <input type="text" class="form-control rounded-0 bg-light text-warning" id="subtitle" name="subtitle" value="{{old('title') ? old('title') : $title->subtitle}}">
+      <input type="text" class="form-control rounded-0 bg-light text-warning" id="subtitle" name="subtitle" value="{{old('subtitle') ? old('subtitle') : $title->subtitle}}">
     </div>
     <button type="submit" class="btn btn-warning rounded-0 text-light">Update</button>
 </form>

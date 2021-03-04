@@ -63,7 +63,8 @@ class SocialController extends Controller
      */
     public function edit(Social $social)
     {
-        //
+        return view('pages.bo.edit.social', ['social'=>$social]);
+
     }
 
     /**

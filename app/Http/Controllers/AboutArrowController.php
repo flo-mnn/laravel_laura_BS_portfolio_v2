@@ -62,7 +62,8 @@ class AboutArrowController extends Controller
      */
     public function edit(AboutArrow $aboutArrow)
     {
-        //
+        return view('pages.bo.edit.aboutArrow', ['about_arrow'=>$aboutArrow]);
+        
     }
 
     /**

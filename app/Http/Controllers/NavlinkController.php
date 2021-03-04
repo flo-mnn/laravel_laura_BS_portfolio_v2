@@ -63,7 +63,8 @@ class NavlinkController extends Controller
      */
     public function edit(Navlink $navlink)
     {
-        //
+        return view('pages.bo.edit.navlink', ['navlink'=>$navlink]);
+
     }
 
     /**

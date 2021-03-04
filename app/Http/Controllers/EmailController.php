@@ -61,7 +61,7 @@ class EmailController extends Controller
      */
     public function edit(Email $email)
     {
-        //
+        return view('pages.bo.edit.email', ['email'=>$email]);
     }
 
     /**

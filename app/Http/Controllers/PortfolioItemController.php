@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PortfolioFilter;
 use App\Models\PortfolioItem;
 use Illuminate\Http\Request;
 
@@ -66,7 +67,8 @@ class PortfolioItemController extends Controller
      */
     public function edit(PortfolioItem $portfolioItem)
     {
-        //
+        return view('pages.bo.edit.portfolioItem', ['portfolio_item'=>$portfolioItem, 'portfolio_filters'=>PortfolioFilter::all()]);
+        
     }
 
     /**

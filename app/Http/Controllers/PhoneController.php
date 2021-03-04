@@ -63,7 +63,7 @@ class PhoneController extends Controller
      */
     public function edit(Phone $phone)
     {
-        //
+        return view('pages.bo.edit.phone', ['phone'=>$phone]);
     }
 
     /**

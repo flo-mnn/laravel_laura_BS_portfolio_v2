@@ -65,7 +65,7 @@ class AboutNumberController extends Controller
      */
     public function edit(AboutNumber $aboutNumber)
     {
-        //
+        return view('pages.bo.edit.aboutNumber', ['about_number'=>$aboutNumber]);
     }
 
     /**

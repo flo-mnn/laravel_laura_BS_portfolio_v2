@@ -62,7 +62,8 @@ class AboutDigitalSkillController extends Controller
      */
     public function edit(AboutDigitalSkill $aboutDigitalSkill)
     {
-        //
+        return view('pages.bo.edit.aboutDigitalSkill', ['about_digital_skill'=>$aboutDigitalSkill]);
+        
     }
 
     /**

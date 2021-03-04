@@ -67,7 +67,8 @@ class FooterController extends Controller
      */
     public function edit(Footer $footer)
     {
-        //
+        return view('pages.bo.edit.footer', ['footer'=>$footer]);
+        
     }
 
     /**

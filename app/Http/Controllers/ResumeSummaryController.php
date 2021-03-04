@@ -57,7 +57,8 @@ class ResumeSummaryController extends Controller
      */
     public function edit(ResumeSummary $resumeSummary)
     {
-        //
+        return view('pages.bo.edit.resumeSummary', ['resume_summary'=>$resumeSummary]);
+
     }
 
     /**

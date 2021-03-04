@@ -65,7 +65,7 @@ class EducationController extends Controller
      */
     public function edit(Education $education)
     {
-        //
+        return view('pages.bo.edit.education', ['education'=>$education]);
     }
 
     /**

@@ -68,7 +68,7 @@ class ExperienceController extends Controller
      */
     public function edit(Experience $experience)
     {
-        //
+        return view('pages.bo.edit.experience', ['experience'=>$experience]);
     }
 
     /**

@@ -36,12 +36,12 @@ class PageImageController extends Controller
      */
     public function store(Request $request)
     {
-        Storage::put('public/img', $request->file('src'));
-        $pageImage = new PageImage();
-        $pageImage->src = $request->file('src')->hashName();
-        $pageImage->save();
+        // Storage::put('public/img', $request->file('src'));
+        // $pageImage = new PageImage();
+        // $pageImage->src = $request->file('src')->hashName();
+        // $pageImage->save();
 
-        return redirect()->back();
+        // return redirect()->back();
     }
 
     /**
@@ -75,10 +75,12 @@ class PageImageController extends Controller
      */
     public function update(Request $request, PageImage $pageImage)
     {
+        //USE THE STORAGE PUBLICLY > CONFIG>FILESYTEM> FILE
+        // $request->file('src')->storePublicly('img','public');
+        
         // Storage::delete('public/img'.$pageImage->src);
         Storage::put('public/img', $request->file('src'));
         $pageImage->src = $request->file('src')->hashName();
-        
         $pageImage->save();
 
         return redirect()->back();

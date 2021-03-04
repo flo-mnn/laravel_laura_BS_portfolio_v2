@@ -62,7 +62,8 @@ class PortfolioFilterController extends Controller
      */
     public function edit(PortfolioFilter $portfolioFilter)
     {
-        //
+        return view('pages.bo.edit.portfolioFilter', ['portfolio_filter'=>$portfolioFilter]);
+
     }
 
     /**

@@ -57,7 +57,8 @@ class ResumeSubtitleController extends Controller
      */
     public function edit(ResumeSubtitle $resumeSubtitle)
     {
-        //
+        return view('pages.bo.edit.resumeSubtitle', ['resume_subtitle'=>$resumeSubtitle]);
+
     }
 
     /**
