@@ -57,7 +57,7 @@ class TitleController extends Controller
      */
     public function edit(Title $title)
     {
-        //
+        return view('pages.bo.edit.title', ['title'=>$title]);
     }
 
     /**
@@ -69,7 +69,6 @@ class TitleController extends Controller
      */
     public function update(Request $request, Title $title)
     {
-        $title = new Title();
         $title->title = $request->title;
         $title->subtitle = $request->subtitle;
           

@@ -1,6 +1,6 @@
    
 <!-- ======= Header ======= -->
-<header id="header" class="{{$bo? null : 'fixed-top'}}  d-flex justify-content-center align-items-center header-transparent {{$bo? 'bg-secondary' : null}}" style="{{$bo? 'margin-top: 15vh; border: solid black 3px' : null}}">
+<header id="header" class="{{(Str::contains((Route::getCurrentRoute()->uri()),'bo') || (Str::contains((Route::getCurrentRoute()->uri()),'edit'))? null : 'fixed-top')}}  d-flex justify-content-center align-items-center header-transparent {{(Str::contains((Route::getCurrentRoute()->uri()),'bo') || (Str::contains((Route::getCurrentRoute()->uri()),'edit'))? 'bg-secondary' : null)}}" style="{{(Str::contains((Route::getCurrentRoute()->uri()),'bo') || (Str::contains((Route::getCurrentRoute()->uri()),'edit')) ? 'margin-top: 15vh; border: solid black 3px' : null)}}">
     <nav class="nav-menu d-none d-lg-block">
       <ul>
         <li class="active"><a href="/">{{$navlinks[0]->link}}</a></li>

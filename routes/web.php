@@ -77,7 +77,7 @@ Route::get('/bo',function(){
         'page_images'=>PageImage::all(),
         'titles'=>Title::all(),
     ]);
-});
+})->name('boHero');
 Route::get('/bo/about',function(){
     return view('pages.bo.about',[
         'bo'=>true,
@@ -87,7 +87,7 @@ Route::get('/bo/about',function(){
         'page_images'=>PageImage::all(),
         'titles'=>Title::all(),
     ]);
-});
+})->name('boAbout');
 Route::get('/bo/contact',function(){
     return view('pages.bo.contact',[
         'bo'=>true,
@@ -98,7 +98,7 @@ Route::get('/bo/contact',function(){
         'contact_cards_heads'=>ContactCardsHead::all(),
         'forms'=>Form::first(),
     ]);
-});
+})->name('boContact');
 Route::get('/bo/footer',function(){
     return view('pages.bo.footer',[
         'bo'=>true,
@@ -106,13 +106,13 @@ Route::get('/bo/footer',function(){
         'footers'=>Footer::first(),
         'socials'=>Social::all(),
     ]);
-});
+})->name('boFooter');
 Route::get('/bo/header',function(){
     return view('pages.bo.header',[
         'bo'=>true,
         'navlinks'=>Navlink::all(),
     ]);
-});
+})->name('boHeader');
 Route::get('/bo/portfolio',function(){
     return view('pages.bo.portfolio',[
         'bo'=>true,
@@ -120,7 +120,7 @@ Route::get('/bo/portfolio',function(){
         'portfolio_filters'=>PortfolioFilter::all(),
         'portfolio_items'=>PortfolioItem::all(),
     ]);
-});
+})->name('boPortfolio');
 Route::get('/bo/resume',function(){
     return view('pages.bo.resume',[
         'bo'=>true,
@@ -130,7 +130,7 @@ Route::get('/bo/resume',function(){
         'education'=>Education::all(),
         'experiences'=>Experience::all(),
     ]);
-});
+})->name('boResume');
 
 
 // ressources

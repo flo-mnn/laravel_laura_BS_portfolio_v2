@@ -25,6 +25,10 @@
 
   <!-- Template Main CSS File -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
+  
+  
+  <!-- Template BackOffice CSS file -->
+  <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Laura - v2.2.1
@@ -35,17 +39,20 @@
 </head>
 
 <body>
-    @if ($bo)
-        
+    @if (Str::contains((Route::getCurrentRoute()->uri()),'bo') || (Str::contains((Route::getCurrentRoute()->uri()),'edit')))
+        {{-- bo navbar --}}
     @else
       @include('partials.header')
     @endif
       
     @yield('content')
-      
-    @if ($bo==false)
+    
+    @if (Str::contains((Route::getCurrentRoute()->uri()),'bo') || (Str::contains((Route::getCurrentRoute()->uri()),'edit')))
+        {{-- display nothing --}}
+    @else
       @include('partials.footer')
     @endif
+   
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
   <!-- Vendor JS Files -->

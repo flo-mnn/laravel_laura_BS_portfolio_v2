@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PageImage;
+use App\Models\AboutDigitalSkill;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class PageImageController extends Controller
+class AboutDigitalSkillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,10 +35,10 @@ class PageImageController extends Controller
      */
     public function store(Request $request)
     {
-        Storage::put('public/img', $request->file('src'));
-        $pageImage = new PageImage();
-        $pageImage->src = $request->file('src')->hashName();
-        $pageImage->save();
+        $aboutDigitalSkill = new AboutDigitalSkill();
+        $aboutDigitalSkill->skill = $request->skill;
+        $aboutDigitalSkill->percentage = $request->percentage;
+        $aboutDigitalSkill->save();
 
         return redirect()->back();
     }
@@ -47,10 +46,10 @@ class PageImageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PageImage  $pageImage
+     * @param  \App\Models\AboutDigitalSkill  $aboutDigitalSkill
      * @return \Illuminate\Http\Response
      */
-    public function show(PageImage $pageImage)
+    public function show(AboutDigitalSkill $aboutDigitalSkill)
     {
         //
     }
@@ -58,28 +57,27 @@ class PageImageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PageImage  $pageImage
+     * @param  \App\Models\AboutDigitalSkill  $aboutDigitalSkill
      * @return \Illuminate\Http\Response
      */
-    public function edit(PageImage $pageImage)
+    public function edit(AboutDigitalSkill $aboutDigitalSkill)
     {
-        return view('pages.bo.edit.pageImage', ['page_image'=>$pageImage]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PageImage  $pageImage
+     * @param  \App\Models\AboutDigitalSkill  $aboutDigitalSkill
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PageImage $pageImage)
+    public function update(Request $request, AboutDigitalSkill $aboutDigitalSkill)
     {
-        // Storage::delete('public/img'.$pageImage->src);
-        Storage::put('public/img', $request->file('src'));
-        $pageImage->src = $request->file('src')->hashName();
-        
-        $pageImage->save();
+        $aboutDigitalSkill = new AboutDigitalSkill();
+        $aboutDigitalSkill->skill = $request->skill;
+        $aboutDigitalSkill->percentage = $request->percentage;
+        $aboutDigitalSkill->save();
 
         return redirect()->back();
     }
@@ -87,12 +85,12 @@ class PageImageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PageImage  $pageImage
+     * @param  \App\Models\AboutDigitalSkill  $aboutDigitalSkill
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PageImage $pageImage)
+    public function destroy(AboutDigitalSkill $aboutDigitalSkill)
     {
-        // $pageImage->delete();
-        // return redirect()->back();
+       $aboutDigitalSkill->delete();
+        return redirect()->back();
     }
 }
