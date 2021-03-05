@@ -92,7 +92,7 @@
                 <tr>
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$portfolio_item->title}}</td>
-                    <td>{{$portfolio_item->cover_src}}</td>
+                    <td><img src="/storage/img/{{$portfolio_item->cover_src}}" width="100" alt=""></td>
                     <td>{{$portfolio_item->filter}}</td>
                     <td>{{$portfolio_item->url}}</td>
                     <td><a href="{{route('portfolio_items.edit',['portfolio_item' => $portfolio_item])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
@@ -128,9 +128,9 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Example select</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
-                                  @foreach ($portfolio_filters as $portfoliio_filter)
-                                    @if ($portfoliio_filter->id != 1)
-                                    <option value="{{$portfolio_filter->filter}}">{{$portfolio_filter->filter}}</option>
+                                  @foreach ($portfolio_filters as $portfolio_filter_item)
+                                    @if ($portfolio_filter_item->id != 1)
+                                    <option value="{{$portfolio_filter_item->filter}}">{{$portfolio_filter_item->filter}}</option>
                                     @endif
                                   @endforeach
                                     <option value="other">other ("all" section)</option>
