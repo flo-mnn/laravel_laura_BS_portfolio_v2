@@ -12,7 +12,9 @@
     @endif
     <div class="form-group">
       <label for="icon" class="text-capitalize">icon</label>
-      <input type="text" class="form-control rounded-0 bg-light text-warning" id="icon" name="icon" value="{{old('icon') ? old('icon') : $social->icon}}">
+      <input type="text" class="form-control rounded-0 bg-light text-warning" id="icon" name="icon" value="{{old('icon') ? old('icon') : $social->icon}}" aria-describedby="iconHelp">
+      <small id="iconHelp" class="form-text text-muted">Please visit <a href="https://boxicons.com/">BoxIcons</a>, filter for logos, and enter your icon name</small>
+      
     </div>
     <div class="form-group">
       <label for="url" class="text-capitalize">url</label>

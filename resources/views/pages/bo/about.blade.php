@@ -51,6 +51,7 @@
                     <th scope="col">Info Title</th>
                     <th scope="col">Info</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -60,8 +61,41 @@
                             <td>{{$about_arrow->title}}</td>
                             <td>{{$about_arrow->info}}</td>
                             <td><a href="{{route('about_arrows.edit',['about_arrow' => $about_arrow])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
+                            <td><form action="/about_arrows/{{$about_arrow->id}}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
+                            </form></td>
                         </tr>
                     @endforeach
+                    <tr>
+                        <th scope="row"><i class="bx bx-list-plus"></i></th>
+                        <th colspan="4">
+                            <form class="p-5 rounded-0 bg-dark text-light" action="/about_arrows" method="POST">
+                                @csrf
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
+                                <div class="form-group">
+                                  <label for="title" class="text-capitalize">title</label>
+                                  <input type="text" class="form-control rounded-0 bg-light text-warning" id="title" name="title" value="{{old('title')}}">
+                                </div>
+                                <div class="form-group">
+                                  <label for="info" class="text-capitalize">info</label>
+                                  <input type="text" class="form-control rounded-0 bg-light text-warning" id="info" name="info" value="{{old('info')}}">
+                                </div>
+                                <button type="submit" class="btn btn-warning rounded-0 text-light">Add</button>
+                            </form>
+                        </th>
+                        <th></th>
+                    </tr>
+                    
                 </tbody>
             </table>
         </div>
@@ -76,6 +110,8 @@
                     <th scope="col">Number</th>
                     <th scope="col">Text First Words</th>
                     <th scope="col">Rest of the Text</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -88,8 +124,55 @@
                             <td>{{$about_number->emphasis}}</td>
                             <td>{{$about_number->text}}</td>
                             <td><a href="{{route('about_numbers.edit',['about_number' => $about_number])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
+                            <td><form action="/about_numbers/{{$about_number->id}}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
+                            </form></td>
                         </tr>
                     @endforeach
+                    <tr>
+                        <th scope="row"><i class="bx bx-list-plus"></i></th>
+                        <th colspan="7">
+                            <form class="p-5 rounded-0 bg-dark text-light" action="/about_numbers" method="POST">
+                                @csrf
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
+                                <div class="form-group">
+                                  <label for="icon" class="text-capitalize">icon</label>
+                                  <input type="text" class="form-control rounded-0 bg-light text-warning" id="icon" name="icon" value="{{old('icon')}}" aria-describedby="iconHelp">
+                                  <small id="iconHelp" class="form-text text-muted">Please visit <a href="https://icofont.com/icons">Icofonts</a> and enter your icon name</small>
+
+                                </div>
+                                <div class="form-group">
+                                  <label for="icon_color" class="text-capitalize">icon_color</label>
+                                  <input type="color" class="form-control rounded-0 bg-light text-warning" id="icon_color" name="icon_color" value="{{old('icon_color')}}">
+                                </div>
+                                <div class="form-group">
+                                  <label for="number" class="text-capitalize">number</label>
+                                  <input type="number" class="form-control rounded-0 bg-light text-warning" id="number" name="number" value="{{old('number')}}">
+                                </div>
+                                <div class="form-group">
+                                  <label for="emphasis" class="text-capitalize">emphasis</label>
+                                  <input type="text" class="form-control rounded-0 bg-light text-warning" id="emphasis" name="emphasis" value="{{old('emphasis')}}">
+                                </div>
+                                <div class="form-group">
+                                  <label for="text" class="text-capitalize">text</label>
+                                  <textarea class="form-control rounded-0 bg-light text-warning" id="text" name="text">{{old('text')}}</textarea>
+                                </div>
+                                <button type="submit" class="btn btn-warning rounded-0 text-light">Add</button>
+                            </form>
+                        </th>
+                        <th></th>
+                        
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -102,6 +185,7 @@
                     <th scope="col">Info Title</th>
                     <th scope="col">Info</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -111,8 +195,40 @@
                             <td>{{$about_digital_skill->skill}}</td>
                             <td>{{$about_digital_skill->percentage}}</td>
                             <td><a href="{{route('about_digital_skills.edit',['about_digital_skill' => $about_digital_skill])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
+                            <td><form action="/about_digital_skills/{{$about_digital_skill->id}}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
+                            </form></td>
                         </tr>
                     @endforeach
+                    <tr>
+                        <th scope="row"><i class="bx bx-list-plus"></i></th>
+                        <th colspan="4">
+                            <form class="p-5 rounded-0 bg-dark text-light" action="/about_digital_skills" method="POST">
+                                @csrf
+                                @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif
+                                <div class="form-group">
+                                  <label for="skill" class="text-capitalize">skill</label>
+                                  <input type="text" class="form-control rounded-0 bg-light text-warning" id="skill" name="skill" value="{{old('skill')}}">
+                                </div>
+                                <div class="form-group">
+                                  <label for="percentage" class="text-capitalize">percentage</label>
+                                  <input type="number" class="form-control rounded-0 bg-light text-warning" id="percentage" name="percentage" value="{{old('percentage')}}">
+                                </div>
+                                <button type="submit" class="btn btn-warning rounded-0 text-light">Add</button>
+                            </form>
+                        </th>
+                        <th></th>
+                    </tr>
                 </tbody>
             </table>
         </div>
