@@ -192,12 +192,3 @@
   });
 
 })(jQuery);
-
-// change theme color added
-var changeColorBtn = document.querySelector('#themeColorBtn');
-changeColorBtn.addEventListener('click',function(){
-  let colorInput = document.querySelector('#themeColor');
-  let newColor = colorInput.value;
-  document.documentElement.style
-    .setProperty('--warning', `${newColor}`);
-});

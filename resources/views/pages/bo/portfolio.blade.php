@@ -14,9 +14,9 @@
     @include('partials.portfolio')
     <section id="editPortfolio" class="container">
         <div class="mt-5">
-            <h1 class="text-warning bo">Title & Subtitle</h1>
+            <h1 class="text-{{$color->color}} bo">Title & Subtitle</h1>
             <table class="table table-striped table-dark">
-                <thead class="thead-warning">
+                <thead class="thead-{{$color->color}}">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
@@ -29,15 +29,15 @@
                     <th scope="row">#</th>
                     <td>{{$titles[3]->title}}</td>
                     <td>{{$titles[3]->subtitle}}</td>
-                    <td><a href="{{route('titles.edit',['title' => $titles[3]->id])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
+                    <td><a href="{{route('titles.edit',['title' => $titles[3]->id])}}" class="btn btn-{{$color->color}} rounded-0 text-light">edit</a></td>
                 </tr>
                 </tbody>
             </table>
         </div>
         <div class="mt-5">
-            <h1 class="text-warning bo">Portfolio Filters & Categories</h1>
+            <h1 class="text-{{$color->color}} bo">Portfolio Filters & Categories</h1>
             <table class="table table-striped table-dark">
-                <thead class="thead-warning">
+                <thead class="thead-{{$color->color}}">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Filter</th>
@@ -50,7 +50,7 @@
                 <tr>
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$portfolio_filter->filter}}</td>
-                    <td><a href="{{route('portfolio_filters.edit',['portfolio_filter' => $portfolio_filter])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
+                    <td><a href="{{route('portfolio_filters.edit',['portfolio_filter' => $portfolio_filter])}}" class="btn btn-{{$color->color}} rounded-0 text-light">edit</a></td>
                     <td>
                     @if ($portfolio_filter->id !=1)
                             <form action="/portfolio_filters/{{$portfolio_filter->id}}" method="POST">
@@ -69,9 +69,9 @@
                             @csrf
                             <div class="form-group">
                               <label for="filter" class="text-capitalize">filter</label>
-                              <input type="text" class="form-control rounded-0 bg-light text-warning" id="filter" name="filter" value="{{old('filter')}}">
+                              <input type="text" class="form-control rounded-0 bg-light text-{{$color->color}}" id="filter" name="filter" value="{{old('filter')}}">
                             </div>
-                            <button type="submit" class="btn btn-warning rounded-0 text-light">Add</button>
+                            <button type="submit" class="btn btn-{{$color->color}} rounded-0 text-light">Add</button>
                         </form>
                     </th>
                     <th></th>
@@ -80,9 +80,9 @@
             </table>
         </div>
         <div class="mt-5">
-            <h1 class="text-warning bo">Portfolio Items</h1>
+            <h1 class="text-{{$color->color}} bo">Portfolio Items</h1>
             <table class="table table-striped table-dark">
-                <thead class="thead-warning">
+                <thead class="thead-{{$color->color}}">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
@@ -101,7 +101,7 @@
                     <td><img src="/storage/img/{{$portfolio_item->cover_src}}" width="100" alt=""></td>
                     <td>{{$portfolio_item->filter}}</td>
                     <td>{{$portfolio_item->url}}</td>
-                    <td><a href="{{route('portfolio_items.edit',['portfolio_item' => $portfolio_item])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
+                    <td><a href="{{route('portfolio_items.edit',['portfolio_item' => $portfolio_item])}}" class="btn btn-{{$color->color}} rounded-0 text-light">edit</a></td>
                     <td><form action="/portfolio_items/{{$portfolio_item->id}}" method="POST">
                         @csrf
                         @method('DELETE')
@@ -116,11 +116,11 @@
                             @csrf
                             <div class="form-group">
                               <label for="title" class="text-capitalize">title</label>
-                              <input type="text" class="form-control rounded-0 bg-light text-warning" id="title" name="title" value="{{old('title')}}">
+                              <input type="text" class="form-control rounded-0 bg-light text-{{$color->color}}" id="title" name="title" value="{{old('title')}}">
                             </div>
                             <div class="form-group">
                               <label for="cover_src" class="text-capitalize">cover_src</label>
-                              <input type="file" class="form-control rounded-0 bg-light text-warning" id="cover_src" name="cover_src">
+                              <input type="file" class="form-control rounded-0 bg-light text-{{$color->color}}" id="cover_src" name="cover_src">
                             </div>
                             <div class="form-group">
                                 <label>Example select</label>
@@ -135,9 +135,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="url" class="text-capitalize">url</label>
-                                <input type="url" class="form-control rounded-0 bg-light text-warning" id="url" name="url" value="{{old('url')}}">
+                                <input type="url" class="form-control rounded-0 bg-light text-{{$color->color}}" id="url" name="url" value="{{old('url')}}">
                               </div>
-                            <button type="submit" class="btn btn-warning rounded-0 text-light">Add</button>
+                            <button type="submit" class="btn btn-{{$color->color}} rounded-0 text-light">Add</button>
                         </form>
                     </th>
                     <th></th>

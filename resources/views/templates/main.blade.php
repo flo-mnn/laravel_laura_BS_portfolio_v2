@@ -55,7 +55,7 @@
       @include('partials.footer')
     @endif
    
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <a href="#" class="back-to-top"><i class="icofont-simple-up bg-{{$color->color}}"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>

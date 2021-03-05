@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutArrowController;
 use App\Http\Controllers\AboutDigitalSkillController;
 use App\Http\Controllers\AboutNumberController;
+use App\Http\Controllers\ColorController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ExperienceController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\TitleController;
 use App\Models\AboutArrow;
 use App\Models\AboutDigitalSkill;
 use App\Models\AboutNumber;
+use App\Models\Color;
 use App\Models\ContactCardsHead;
 use App\Models\Education;
 use App\Models\Email;
@@ -66,6 +68,7 @@ Route::get('/', function () {
         'resume_summaries'=>ResumeSummary::first(),
         'socials'=>Social::all(),
         'titles'=>Title::all(),
+        'color'=>Color::first(),
     ]);
 });
 
@@ -75,6 +78,7 @@ Route::get('/bo',function(){
         'navlinks'=>Navlink::all(),
         'page_images'=>PageImage::all(),
         'titles'=>Title::all(),
+        'color'=>Color::first(),
     ]);
 })->name('boHero');
 Route::get('/bo/about',function(){
@@ -85,6 +89,7 @@ Route::get('/bo/about',function(){
         'about_numbers'=>AboutNumber::all(),
         'page_images'=>PageImage::all(),
         'titles'=>Title::all(),
+        'color'=>Color::first(),
     ]);
 })->name('boAbout');
 Route::get('/bo/contact',function(){
@@ -96,6 +101,7 @@ Route::get('/bo/contact',function(){
         'socials'=>Social::all(),
         'contact_cards_heads'=>ContactCardsHead::all(),
         'forms'=>Form::first(),
+        'color'=>Color::first(),
     ]);
 })->name('boContact');
 Route::get('/bo/footer',function(){
@@ -104,11 +110,13 @@ Route::get('/bo/footer',function(){
         'page_images'=>PageImage::all(),
         'footers'=>Footer::first(),
         'socials'=>Social::all(),
+        'color'=>Color::first(),
     ]);
 })->name('boFooter');
 Route::get('/bo/header',function(){
     return view('pages.bo.header',[
         'navlinks'=>Navlink::all(),
+        'color'=>Color::first(),
     ]);
 })->name('boHeader');
 Route::get('/bo/portfolio',function(){
@@ -117,6 +125,7 @@ Route::get('/bo/portfolio',function(){
         'titles'=>Title::all(),
         'portfolio_filters'=>PortfolioFilter::all(),
         'portfolio_items'=>PortfolioItem::all(),
+        'color'=>Color::first(),
     ]);
 })->name('boPortfolio');
 Route::get('/bo/resume',function(){
@@ -127,6 +136,7 @@ Route::get('/bo/resume',function(){
         'resume_summaries'=>ResumeSummary::first(),
         'education'=>Education::all(),
         'experiences'=>Experience::all(),
+        'color'=>Color::first(),
     ]);
 })->name('boResume');
 
@@ -148,3 +158,4 @@ Route::resource('resume_subtitles',ResumeSubtitleController::class);
 Route::resource('resume_summaries',ResumeSummaryController::class);
 Route::resource('socials',SocialController::class);
 Route::resource('titles',TitleController::class);
+Route::resource('colors',ColorController::class);

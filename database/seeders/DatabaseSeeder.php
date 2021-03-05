@@ -32,7 +32,8 @@ class DatabaseSeeder extends Seeder
             ResumeSubtitleSeeder::class,
             ResumeSummarySeeder::class,
             SocialSeeder::class,
-            TitleSeeder::class
+            TitleSeeder::class,
+            ColorSeeder::class
 
         ]);
     }

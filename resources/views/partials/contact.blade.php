@@ -14,7 +14,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="info-box">
-                <i class="{{$contact_cards_heads[0]->icon}}"></i>
+                <i class="{{$contact_cards_heads[0]->icon}} text-{{$color->color}}"></i>
                 <h3>{{$contact_cards_heads[0]->title}}</h3>
                 <div class="social-links">
                   @foreach ($socials as $social)

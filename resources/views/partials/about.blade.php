@@ -15,7 +15,7 @@
               <div class="col-lg-6">
                 <ul>
               @foreach ($about_arrows as $about_arrow)
-                    <li><i class="icofont-rounded-right"></i> <strong>{{$about_arrow->title}}</strong> {{$about_arrow->info}}</li>
+                    <li><i class="icofont-rounded-right text-{{$color->color}}"></i> <strong>{{$about_arrow->title}}</strong> {{$about_arrow->info}}</li>
                 @if (
                   (count($about_arrows) % 2 === 0 && $loop->iteration == (count($about_arrows)/2))
                     ||
@@ -51,7 +51,7 @@
               <div class="progress">
                 <span class="skill">{{$about_digital_skill->skill}} <i class="val">{{$about_digital_skill->percentage}}%</i></span>
                 <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="{{$about_digital_skill->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-{{$color->color}}" role="progressbar" aria-valuenow="{{$about_digital_skill->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               </div>
             @endforeach

@@ -46,14 +46,15 @@ h1, h2, h3, h4, h5, h6 {
   width: 40px;
   height: 40px;
   border-radius: 4px;
-  background: #ffb727;
+  /* background: #ffb727; */
   color: #fff;
   transition: all 0.4s;
 }
 
 .back-to-top i:hover {
-  background: #ffc550;
-  color: #fff;
+  /* background: #ffc550;
+  color: #fff; */
+  opacity: 0.7;
 }
 
 /*--------------------------------------------------------------
@@ -357,7 +358,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn-scroll:hover {
-  color: #ffb727;
+  /* color: #ffb727; */
 }
 
 @media (min-width: 1024px) {
@@ -538,7 +539,7 @@ section {
 .about .content ul i {
   font-size: 20px;
   padding-right: 2px;
-  color: #ffb727;
+  /* color: #ffb727; */
 }
 
 .about .content .count-box {
@@ -548,7 +549,7 @@ section {
 .about .content .count-box i {
   display: block;
   font-size: 36px;
-  color: #ffb727;
+  /* color: #ffb727; */
   float: left;
 }
 
@@ -624,7 +625,7 @@ section {
   width: 1px;
   height: 10px;
   transition: .9s;
-  background-color: #ffb727;
+  /* background-color: #ffb727; */
 }
 
 /*--------------------------------------------------------------
@@ -650,7 +651,7 @@ section {
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #ffb727;
+  /* color: #ffb727; */
   margin-bottom: 10px;
 }
 
@@ -870,9 +871,38 @@ section {
   border: 2px solid #fff;
 }
 
-.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
+/* with theme colors duplicates */
+.portfolio #portfolio-flters li.warning:hover, .portfolio #portfolio-flters li.filter-active.warning {
   color: #f3a200;
   border-color: #ffb727;
+}
+.portfolio #portfolio-flters li.primary:hover, .portfolio #portfolio-flters li.filter-active.primary {
+  color: #007bff;
+  border-color: #228bfc;
+}
+.portfolio #portfolio-flters li.secondary:hover, .portfolio #portfolio-flters li.filter-active.secondary {
+  color: #6c757d;
+  border-color: #797e81;
+}
+.portfolio #portfolio-flters li.dark:hover, .portfolio #portfolio-flters li.filter-active.dark {
+  color: #343a40;
+  border-color: #393c3f;
+}
+.portfolio #portfolio-flters li.success:hover, .portfolio #portfolio-flters li.filter-active.success {
+  color: #28a745;
+  border-color: #379c4f;
+}
+.portfolio #portfolio-flters li.success:hover, .portfolio #portfolio-flters li.filter-active.success {
+  color: #28a745;
+  border-color: #379c4f;
+}
+.portfolio #portfolio-flters li.info:hover, .portfolio #portfolio-flters li.filter-active.info {
+  color: #17a2b8;
+  border-color: #2ba6b9;
+}
+.portfolio #portfolio-flters li.danger:hover, .portfolio #portfolio-flters li.filter-active.danger {
+  color: #dc3545;
+  border-color: #dd4c5b;
 }
 
 .portfolio .portfolio-item {
@@ -1147,7 +1177,7 @@ section {
 
 .contact .info-box i.bx {
   font-size: 24px;
-  color: #ffb727;
+  /* color: #ffb727; */
   border-radius: 50%;
   padding: 15px;
   background: #fff6e4;

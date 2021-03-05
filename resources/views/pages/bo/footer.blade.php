@@ -14,9 +14,9 @@
     @include('partials.footer')
     <section id="editFooter" class="container">
         <div class="mt-5">
-            <h1 class="text-warning bo">Footer Infos</h1>
+            <h1 class="text-{{$color->color}} bo">Footer Infos</h1>
             <table class="table table-striped table-dark">
-                <thead class="thead-warning">
+                <thead class="thead-{{$color->color}}">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
@@ -37,15 +37,15 @@
                     <td>{{$footers->designed}}</td>
                     <td>{{$footers->link_name}}</td>
                     <td>{{$footers->link}}</td>
-                    <td><a href="{{route('footers.edit',['footer' => $footers])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
+                    <td><a href="{{route('footers.edit',['footer' => $footers])}}" class="btn btn-{{$color->color}} rounded-0 text-light">edit</a></td>
                 </tr>
                 </tbody>
             </table>
         </div>
         <div class="mt-5">
-            <h1 class="text-warning bo">Social Media Items</h1>
+            <h1 class="text-{{$color->color}} bo">Social Media Items</h1>
             <table class="table table-striped table-dark">
-                <thead class="thead-warning">
+                <thead class="thead-{{$color->color}}">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Icon Name</th>
@@ -60,7 +60,7 @@
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$social->icon}}</td>
                     <td>{{$social->url}}</td>
-                    <td><a href="{{route('socials.edit',['social' => $social])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
+                    <td><a href="{{route('socials.edit',['social' => $social])}}" class="btn btn-{{$color->color}} rounded-0 text-light">edit</a></td>
                     <td><form action="/socials/{{$social->id}}" method="POST">
                         @csrf
                         @method('DELETE')
@@ -75,15 +75,15 @@
                             @csrf
                             <div class="form-group">
                               <label for="icon" class="text-capitalize">icon</label>
-                              <input type="text" class="form-control rounded-0 bg-light text-warning" id="icon" name="icon" value="{{old('icon') ? old('icon') : $social->icon}}" aria-describedby="iconHelp">
+                              <input type="text" class="form-control rounded-0 bg-light text-{{$color->color}}" id="icon" name="icon" value="{{old('icon') ? old('icon') : $social->icon}}" aria-describedby="iconHelp">
                                 <small id="iconHelp" class="form-text text-muted">Please visit <a href="https://boxicons.com/">BoxIcons</a>, filter for logos, and enter your icon name</small>
                                 
                             </div>
                             <div class="form-group">
                               <label for="url" class="text-capitalize">url</label>
-                              <input type="url" class="form-control rounded-0 bg-light text-warning" id="url" name="url" value="{{old('url') ? old('url') : $social->url}}">
+                              <input type="url" class="form-control rounded-0 bg-light text-{{$color->color}}" id="url" name="url" value="{{old('url') ? old('url') : $social->url}}">
                             </div>
-                            <button type="submit" class="btn btn-warning rounded-0 text-light">Add</button>
+                            <button type="submit" class="btn btn-{{$color->color}} rounded-0 text-light">Add</button>
                         </form>
                     </th>
                     <th></th>
