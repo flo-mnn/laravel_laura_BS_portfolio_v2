@@ -19,11 +19,11 @@
       <input type="file" class="form-control rounded-0 bg-light text-warning" id="cover_src" name="cover_src">
     </div>
     <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          @foreach ($portfolio_filters as $portfoliio_filter)
-            @if ($portfoliio_filter->id != 1)
-            <option value="{{$portfolio_filter->$filter}}">{{$portfolio_filter->$filter}}</option>
+      <label>Example select</label>
+      <select class="form-control" name="filter">
+          @foreach ($portfolio_filters as $portfolio_filter)
+            @if ($portfolio_filter->id != 1)
+            <option value="{{$portfolio_filter->filter}}">{{$portfolio_filter->filter}}</option>
             @endif
           @endforeach
             <option value="other">other ("all" section)</option>

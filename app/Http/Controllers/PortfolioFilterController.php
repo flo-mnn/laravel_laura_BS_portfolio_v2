@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PortfolioFilter;
+use App\Models\PortfolioItem;
 use Illuminate\Http\Request;
 
 class PortfolioFilterController extends Controller
@@ -79,10 +80,19 @@ class PortfolioFilterController extends Controller
      */
     public function update(Request $request, PortfolioFilter $portfolioFilter)
     {
+        
         $validated = $request->validate([
             'filter' => 'max:20',
-        ]);
-
+            ]);
+        
+        $oldFilter = $portfolioFilter->filter;
+        $portfolioItems = PortfolioItem::all();
+        foreach ($portfolioItems as $portfolioItem) {
+            if ($portfolioItem->filter == $oldFilter) {
+                $portfolioItem->filter = $request->filter;
+                $portfolioItem->save();
+            }
+        }
         $portfolioFilter->filter = $request->filter;
     
         $portfolioFilter->save();
@@ -98,6 +108,7 @@ class PortfolioFilterController extends Controller
      */
     public function destroy(PortfolioFilter $portfolioFilter)
     {
-        //
+        $portfolioFilter->delete();
+        return redirect()->back();
     }
 }

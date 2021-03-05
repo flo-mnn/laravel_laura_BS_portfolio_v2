@@ -1,5 +1,16 @@
 @extends('templates.main')
 @section('content')
+    @if ($errors->any())
+    <div class="container">
+        <div class="alert alert-danger" style="margin-top: 100px">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+    @endif
     @include('partials.about')
     <section id="editAbout" class="container">
         <div class="mt-5">
@@ -61,7 +72,7 @@
                             <td>{{$about_arrow->title}}</td>
                             <td>{{$about_arrow->info}}</td>
                             <td><a href="{{route('about_arrows.edit',['about_arrow' => $about_arrow])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
-                            <td><form action="/about_arrows/{{$about_arrow->id}}">
+                            <td><form action="/about_arrows/{{$about_arrow->id}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
@@ -73,15 +84,6 @@
                         <th colspan="4">
                             <form class="p-5 rounded-0 bg-dark text-light" action="/about_arrows" method="POST">
                                 @csrf
-                                @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                @endif
                                 <div class="form-group">
                                   <label for="title" class="text-capitalize">title</label>
                                   <input type="text" class="form-control rounded-0 bg-light text-warning" id="title" name="title" value="{{old('title')}}">
@@ -124,7 +126,7 @@
                             <td>{{$about_number->emphasis}}</td>
                             <td>{{$about_number->text}}</td>
                             <td><a href="{{route('about_numbers.edit',['about_number' => $about_number])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
-                            <td><form action="/about_numbers/{{$about_number->id}}">
+                            <td><form action="/about_numbers/{{$about_number->id}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
@@ -136,15 +138,7 @@
                         <th colspan="7">
                             <form class="p-5 rounded-0 bg-dark text-light" action="/about_numbers" method="POST">
                                 @csrf
-                                @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                @endif
+                               
                                 <div class="form-group">
                                   <label for="icon" class="text-capitalize">icon</label>
                                   <input type="text" class="form-control rounded-0 bg-light text-warning" id="icon" name="icon" value="{{old('icon')}}" aria-describedby="iconHelp">
@@ -195,7 +189,7 @@
                             <td>{{$about_digital_skill->skill}}</td>
                             <td>{{$about_digital_skill->percentage}}</td>
                             <td><a href="{{route('about_digital_skills.edit',['about_digital_skill' => $about_digital_skill])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
-                            <td><form action="/about_digital_skills/{{$about_digital_skill->id}}">
+                            <td><form action="/about_digital_skills/{{$about_digital_skill->id}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
@@ -207,15 +201,6 @@
                         <th colspan="4">
                             <form class="p-5 rounded-0 bg-dark text-light" action="/about_digital_skills" method="POST">
                                 @csrf
-                                @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                @endif
                                 <div class="form-group">
                                   <label for="skill" class="text-capitalize">skill</label>
                                   <input type="text" class="form-control rounded-0 bg-light text-warning" id="skill" name="skill" value="{{old('skill')}}">

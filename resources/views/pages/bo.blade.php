@@ -24,6 +24,27 @@
             </table>
         </div>
         <div class="mt-5">
+            <h1 class="text-warning bo">Change Theme Color</h1>
+            <table class="table table-striped table-dark">
+                <thead class="thead-warning">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Choose</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row"><span style="color: var(--warning); font-family: 'Satisfy', serif;">Current Color</span></th>
+                    <td><form action="/colors/1/edit" method="POST">
+                        
+                    </form></td>
+                    <td><input type="submit" form="themeColor">Change</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-5">
             <h1 class="text-warning bo">Background Image</h1>
             <table class="table table-striped table-dark">
                 <thead class="thead-warning">

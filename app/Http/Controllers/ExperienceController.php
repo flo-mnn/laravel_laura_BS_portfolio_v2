@@ -37,8 +37,8 @@ class ExperienceController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|max:100',
-            'start_date' => 'required|date',
-            'end_date' => 'date',
+            'start_date' => 'required|numeric|between:1900,2100',
+            'end_date' => 'numeric|between:1900,2100',
             'place' => 'required|max:100',
             'task1' => 'max:500',
             'task2' => 'max:500',
@@ -93,8 +93,7 @@ class ExperienceController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|max:100',
-            'start_date' => 'required|date',
-            'end_date' => 'date',
+            'start_date' => 'required|numeric|between:1900,2100',
             'place' => 'required|max:100',
             'task1' => 'max:500',
             'task2' => 'max:500',

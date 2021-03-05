@@ -1,5 +1,16 @@
 @extends('templates.main')
 @section('content')
+    @if ($errors->any())
+        <div class="container">
+            <div class="alert alert-danger" style="margin-top: 100px">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endif
     @include('partials.footer')
     <section id="editFooter" class="container">
         <div class="mt-5">
@@ -50,7 +61,7 @@
                     <td>{{$social->icon}}</td>
                     <td>{{$social->url}}</td>
                     <td><a href="{{route('socials.edit',['social' => $social])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
-                    <td><form action="/socials/{{$social->id}}">
+                    <td><form action="/socials/{{$social->id}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
@@ -62,15 +73,6 @@
                     <th colspan="4">
                         <form class="p-5 rounded-0 bg-dark text-light" action="/socials" method="POST">
                             @csrf
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
                             <div class="form-group">
                               <label for="icon" class="text-capitalize">icon</label>
                               <input type="text" class="form-control rounded-0 bg-light text-warning" id="icon" name="icon" value="{{old('icon') ? old('icon') : $social->icon}}" aria-describedby="iconHelp">

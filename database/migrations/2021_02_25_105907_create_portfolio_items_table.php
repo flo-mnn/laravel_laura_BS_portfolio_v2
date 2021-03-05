@@ -24,7 +24,7 @@ class CreatePortfolioItemsTable extends Migration
             // $table->string('src3',500)->nullable();
             // $table->string('client',100);
             // $table->date('date')->nullable();
-            $table->string('url',500)->default('#');
+            $table->string('url',500)->nullable()->default('#');
             // $table->string('text',2000);
             $table->timestamps();
         });

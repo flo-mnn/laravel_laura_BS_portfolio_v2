@@ -23,7 +23,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+            @if (count($emails)>0)
+            <div class="{{count($phones)==0? "col-md-12" : "col-md-6"}}">
               <div class="info-box mt-4">
                 <i class="{{$contact_cards_heads[1]->icon}}"></i>
                 <h3>{{$contact_cards_heads[1]->title}}</h3>
@@ -32,7 +33,9 @@
                 @endforeach
               </div>
             </div>
-            <div class="col-md-6">
+            @endif
+            @if (count($phones)>0)
+            <div class="{{count($emails)==0? "col-md-12" : "col-md-6"}}">
               <div class="info-box mt-4">
                 <i class="{{$contact_cards_heads[2]->icon}}"></i>
                 <h3>{{$contact_cards_heads[2]->title}}</h3>
@@ -41,6 +44,8 @@
                 @endforeach
               </div>
             </div>
+            @endif
+            
           </div>
 
         </div>

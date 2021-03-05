@@ -1,9 +1,3 @@
-PLEASE NOTE THIS PORTFOLIO BACKOFFICE IS NOT COMPLETE, ATTEMPTS HAVE BEEN MADE & FOCUS WAS RATHER PUT ON THE AESTHETICS THAN THE FUNCTIONALITY OF IT. TO ACCESS THE BO, add /bo to the URL.
-
-
-CAREFUL FILTER AND CASE (lowcase! validate?)
-
-
 Projet Portfolio Perso
 Trouver un portfolio en bootstrap4 et le laraveliser
 

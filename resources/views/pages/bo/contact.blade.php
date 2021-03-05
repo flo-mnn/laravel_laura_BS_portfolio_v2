@@ -1,5 +1,16 @@
 @extends('templates.main')
 @section('content')
+    @if ($errors->any())
+        <div class="container">
+            <div class="alert alert-danger" style="margin-top: 100px">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endif
     @include('partials.contact')
     <section id="editContact" class="container">
         <div class="mt-5">
@@ -42,7 +53,7 @@
                     <td>{{$social->icon}}</td>
                     <td>{{$social->url}}</td>
                     <td><a href="{{route('socials.edit',['social' => $social])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
-                    <td><form action="/socials/{{$social->id}}">
+                    <td><form action="/socials/{{$social->id}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
@@ -54,15 +65,6 @@
                     <th colspan="4">
                         <form class="p-5 rounded-0 bg-dark text-light" action="/socials" method="POST">
                             @csrf
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
                             <div class="form-group">
                               <label for="icon" class="text-capitalize">icon</label>
                               <input type="text" class="form-control rounded-0 bg-light text-warning" id="icon" name="icon" value="{{old('icon')}}" aria-describedby="iconHelp">
@@ -98,7 +100,7 @@
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$email->email}}</td>
                     <td><a href="{{route('emails.edit',['email' => $email])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
-                    <td><form action="/emails/{{$email->id}}">
+                    <td><form action="/emails/{{$email->id}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
@@ -110,15 +112,6 @@
                     <th colspan="3">
                         <form class="p-5 rounded-0 bg-dark text-light" action="/emails" method="POST">
                             @csrf
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
                             <div class="form-group">
                               <label for="email" class="text-capitalize">email</label>
                               <input type="email" class="form-control rounded-0 bg-light text-warning" id="email" name="email" value="{{old('email')}}">
@@ -148,7 +141,7 @@
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$phone->phone}}</td>
                     <td><a href="{{route('phones.edit',['phone' => $phone])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
-                    <td><form action="/phones/{{$phone->id}}">
+                    <td><form action="/phones/{{$phone->id}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
@@ -160,15 +153,6 @@
                     <th colspan="3">
                         <form class="p-5 rounded-0 bg-dark text-light" action="/phones" method="POST">
                             @csrf
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
                             <div class="form-group">
                               <label for="phone" class="text-capitalize">phone</label>
                               <input type="text" class="form-control rounded-0 bg-light text-warning" id="phone" name="phone" value="{{old('phone')}}">

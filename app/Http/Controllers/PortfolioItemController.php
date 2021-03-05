@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PortfolioFilter;
 use App\Models\PortfolioItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PortfolioItemController extends Controller
 {
@@ -45,7 +46,8 @@ class PortfolioItemController extends Controller
 
         $portfolioItem = new PortfolioItem();
         $portfolioItem->title = $request->title;
-        $portfolioItem->cover_src = $request->cover_src;
+        Storage::put('public/img/', $request->file('cover_src'));
+        $portfolioItem->cover_src = $request->file('cover_src')->hashName();
         $portfolioItem->filter = $request->filter;
         $portfolioItem->url = $request->url;
         
@@ -95,7 +97,9 @@ class PortfolioItemController extends Controller
         ]);
 
         $portfolioItem->title = $request->title;
-        $portfolioItem->cover_src = $request->cover_src;
+        Storage::delete('public/img/'.$portfolioItem->cover_src);
+        Storage::put('public/img/', $request->file('cover_src'));
+        $portfolioItem->cover_src = $request->file('cover_src')->hashName();
         $portfolioItem->filter = $request->filter;
         $portfolioItem->url = $request->url;
         

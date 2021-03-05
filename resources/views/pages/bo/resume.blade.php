@@ -1,5 +1,16 @@
 @extends('templates.main')
 @section('content')
+    @if ($errors->any())
+        <div class="container">
+            <div class="alert alert-danger" style="margin-top: 100px">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endif
     @include('partials.resume')
     <section id="editResume" class="container">
         <div class="mt-5">
@@ -96,7 +107,7 @@
                     <td>{{$education_item->place}}</td>
                     <td>{{$education_item->text}}</td>
                     <td><a href="{{route('education.edit',['education' => $education_item])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
-                    <td><form action="/education/{{$education_item->id}}">
+                    <td><form action="/education/{{$education_item->id}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
@@ -108,15 +119,6 @@
                     <th colspan="7">
                         <form class="p-5 rounded-0 bg-dark text-light" action="/education" method="POST">
                             @csrf
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
                             <div class="form-group">
                               <label for="title" class="text-capitalize">title</label>
                               <input type="text" class="form-control rounded-0 bg-light text-warning" id="title" name="title" value="{{old('title')}}">
@@ -176,7 +178,7 @@
                     <td>{{$experience->task3}}</td>
                     <td>{{$experience->task4}}</td>
                     <td><a href="{{route('experiences.edit',['experience' => $experience])}}" class="btn btn-warning rounded-0 text-light">edit</a></td>
-                    <td><form action="/experiences/{{$experience->id}}">
+                    <td><form action="/experiences/{{$experience->id}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger rounded-0 text-light">delete</button>
@@ -188,15 +190,6 @@
                     <th colspan="10">
                         <form class="p-5 rounded-0 bg-dark text-light" action="/experiences" method="POST">
                             @csrf
-                            @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            @endif
                             <div class="form-group">
                               <label for="title" class="text-capitalize">title</label>
                               <input type="text" class="form-control rounded-0 bg-light text-warning" id="title" name="title" value="{{old('title')}}">

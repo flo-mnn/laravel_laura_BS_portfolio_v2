@@ -12,7 +12,7 @@
     @endif
     <div class="form-group">
       <label for="name" class="text-capitalize">name</label>
-      <input type="text" class="form-control rounded-0 bg-light text-warning" id="name" name="name" value="{{old('name') ? old('name') : $resume_summary->title}}">
+      <input type="text" class="form-control rounded-0 bg-light text-warning" id="name" name="name" value="{{old('name') ? old('name') : $resume_summary->name}}">
     </div>
     <div class="form-group">
         <label for="text" class="text-capitalize">text</label>

@@ -41,16 +41,23 @@
               <p><em>{{$experiences[$i]->place}} </em></p>
               <p>
               <ul>
-                <li>{{$experiences[$i]->task1}}</li>
-                <li>{{$experiences[$i]->task2}}</li>
-                <li>{{$experiences[$i]->task3}}</li>
-                <li>{{$experiences[$i]->task4}}</li>
+                @if ($experiences[$i]->task1)
+                  <li>{{$experiences[$i]->task1}}</li>
+                @endif
+                @if ($experiences[$i]->task2)
+                  <li>{{$experiences[$i]->task2}}</li>
+                @endif
+                @if ($experiences[$i]->task3)
+                  <li>{{$experiences[$i]->task3}}</li>
+                @endif
+                @if ($experiences[$i]->task4)
+                  <li>{{$experiences[$i]->task4}}</li>
+                @endif
               </ul>
               </p>
             </div>
           @endfor
         </div>
       </div>
-
     </div>
   </section><!-- End My Resume Section -->
