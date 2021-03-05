@@ -1,5 +1,5 @@
  <!-- ======= About Me Section ======= -->
- <section id="about" class="about">
+ <section id="about" class="about {{Str::contains(Route::getCurrentRoute()->uri(),'bo')? 'mt-5' : null}}">
     <div class="container">
       <div class="section-title">
         <span>{{$titles[1]->title}}</span>

@@ -1,5 +1,5 @@
  <!-- ======= My Resume Section ======= -->
- <section id="resume" class="resume">
+ <section id="resume" class="resume {{Str::contains(Route::getCurrentRoute()->uri(),'bo')? 'mt-5' : null}}">
     <div class="container">
 
       <div class="section-title">

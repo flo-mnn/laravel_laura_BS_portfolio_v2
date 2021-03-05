@@ -48,7 +48,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', function () {
     return view('welcome', [
-        'bo'=>false,
         'about_arrows'=>AboutArrow::all(),
         'about_digital_skills'=>AboutDigitalSkill::all(),
         'about_numbers'=>AboutNumber::all(),
@@ -73,14 +72,14 @@ Route::get('/', function () {
 // BO
 Route::get('/bo',function(){
     return view('pages.bo',[
-        'bo'=>true,
+        'navlinks'=>Navlink::all(),
         'page_images'=>PageImage::all(),
         'titles'=>Title::all(),
     ]);
 })->name('boHero');
 Route::get('/bo/about',function(){
     return view('pages.bo.about',[
-        'bo'=>true,
+        'navlinks'=>Navlink::all(),
         'about_arrows'=>AboutArrow::all(),
         'about_digital_skills'=>AboutDigitalSkill::all(),
         'about_numbers'=>AboutNumber::all(),
@@ -90,7 +89,7 @@ Route::get('/bo/about',function(){
 })->name('boAbout');
 Route::get('/bo/contact',function(){
     return view('pages.bo.contact',[
-        'bo'=>true,
+        'navlinks'=>Navlink::all(),
         'titles'=>Title::all(),
         'emails'=>Email::all(),
         'phones'=>Phone::all(),
@@ -101,7 +100,7 @@ Route::get('/bo/contact',function(){
 })->name('boContact');
 Route::get('/bo/footer',function(){
     return view('pages.bo.footer',[
-        'bo'=>true,
+        'navlinks'=>Navlink::all(),
         'page_images'=>PageImage::all(),
         'footers'=>Footer::first(),
         'socials'=>Social::all(),
@@ -109,13 +108,12 @@ Route::get('/bo/footer',function(){
 })->name('boFooter');
 Route::get('/bo/header',function(){
     return view('pages.bo.header',[
-        'bo'=>true,
         'navlinks'=>Navlink::all(),
     ]);
 })->name('boHeader');
 Route::get('/bo/portfolio',function(){
     return view('pages.bo.portfolio',[
-        'bo'=>true,
+        'navlinks'=>Navlink::all(),
         'titles'=>Title::all(),
         'portfolio_filters'=>PortfolioFilter::all(),
         'portfolio_items'=>PortfolioItem::all(),
@@ -123,7 +121,7 @@ Route::get('/bo/portfolio',function(){
 })->name('boPortfolio');
 Route::get('/bo/resume',function(){
     return view('pages.bo.resume',[
-        'bo'=>true,
+        'navlinks'=>Navlink::all(),
         'titles'=>Title::all(),
         'resume_subtitles'=>ResumeSubtitle::all(),
         'resume_summaries'=>ResumeSummary::first(),

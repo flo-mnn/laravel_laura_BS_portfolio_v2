@@ -35,6 +35,11 @@ class AboutArrowController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'max:100',
+            'info' => 'required|max:300',
+        ]);
+
         $arrow = new AboutArrow;
         $arrow->title = $request->title;
         $arrow->info = $request->info;
@@ -75,12 +80,16 @@ class AboutArrowController extends Controller
      */
     public function update(Request $request, AboutArrow $aboutArrow)
     {
+        $validated = $request->validate([
+            'title' => 'max:100',
+            'info' => 'required|max:300',
+        ]);
         
         $aboutArrow->title = $request->title;
         $aboutArrow->info = $request->info;
         $aboutArrow->save();
 
-        return redirect()->back();
+        return redirect('/bo/about');
     }
 
     /**

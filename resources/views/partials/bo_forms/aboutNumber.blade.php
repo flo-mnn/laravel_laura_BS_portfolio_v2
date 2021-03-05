@@ -7,7 +7,7 @@
     </div>
     <div class="form-group">
       <label for="icon_color" class="text-capitalize">icon_color</label>
-      <input type="text" class="form-control rounded-0 bg-light text-warning" id="icon_color" name="icon_color" value="{{old('icon_color') ? old('icon_color') : $about_number->icon_color}}">
+      <input type="color" class="form-control rounded-0 bg-light text-warning" id="icon_color" name="icon_color" value="{{old('icon_color') ? old('icon_color') : $about_number->icon_color}}">
     </div>
     <div class="form-group">
       <label for="number" class="text-capitalize">number</label>

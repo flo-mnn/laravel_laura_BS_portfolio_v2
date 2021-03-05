@@ -25,9 +25,6 @@ class NavlinkSeeder extends Seeder
                 'link'=>'resume'
             ],
             [
-                'link'=>'services'
-            ],
-            [
                 'link'=>'portfolio'
             ],
             [

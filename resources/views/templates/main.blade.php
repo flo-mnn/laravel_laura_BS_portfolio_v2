@@ -38,9 +38,11 @@
   ======================================================== -->
 </head>
 
-<body>
+  <body style="{{Str::contains(Route::getCurrentRoute()->uri(), 'edit')? 'background-color: #343A40;' : null}}">
     @if (Str::contains((Route::getCurrentRoute()->uri()),'bo') || (Str::contains((Route::getCurrentRoute()->uri()),'edit')))
-        {{-- bo navbar --}}
+      @if (Str::contains((Route::getCurrentRoute()->uri()),'bo/') || Route::getCurrentRoute()->uri()== "bo")
+        @include('partials.0_bo_header')
+      @endif
     @else
       @include('partials.header')
     @endif

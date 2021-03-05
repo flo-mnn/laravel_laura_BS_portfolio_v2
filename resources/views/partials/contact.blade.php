@@ -1,5 +1,5 @@
 <!-- ======= Contact Me Section ======= -->
-<section id="contact" class="contact">
+<section id="contact" class="contact {{Str::contains(Route::getCurrentRoute()->uri(),'bo')? 'mt-5' : null}}">
     <div class="container">
 
       <div class="section-title">

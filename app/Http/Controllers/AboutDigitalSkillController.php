@@ -35,6 +35,12 @@ class AboutDigitalSkillController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validated = $request->validate([
+            'title' => 'max:100',
+            'info' => 'required|max:300',
+        ]);
+        
         $aboutDigitalSkill = new AboutDigitalSkill();
         $aboutDigitalSkill->skill = $request->skill;
         $aboutDigitalSkill->percentage = $request->percentage;
@@ -75,7 +81,6 @@ class AboutDigitalSkillController extends Controller
      */
     public function update(Request $request, AboutDigitalSkill $aboutDigitalSkill)
     {
-        $aboutDigitalSkill = new AboutDigitalSkill();
         $aboutDigitalSkill->skill = $request->skill;
         $aboutDigitalSkill->percentage = $request->percentage;
         $aboutDigitalSkill->save();

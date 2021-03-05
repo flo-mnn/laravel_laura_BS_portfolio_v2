@@ -1,5 +1,5 @@
 <!-- ======= My Portfolio Section ======= -->
-<section id="portfolio" class="portfolio">
+<section id="portfolio" class="portfolio {{Str::contains(Route::getCurrentRoute()->uri(),'bo')? 'mt-5' : null}}">
     <div class="container">
 
       <div class="section-title">
@@ -25,15 +25,10 @@
             <div class="portfolio-info">
               <h4 class="text-capitalize">{{$portfolio_item->title}}</h4>
               <p class="text-capitalize">{{$portfolio_item->filter}}</p>
-              @if ($bo)
-                {{-- edit link --}}
-                <a href="" class="details-link" title="Edit Item"><i class="bx bx-edit"></i></a>  
-              @else    
                 <a href="/storage/img/{{$portfolio_item->cover_src}}" data-gall="portfolioGallery" class="venobox preview-link" title="{{$portfolio_item->title}}">
                     <i class="bx bx-plus"></i>
                 </a>
                 <a href="{{$portfolio_item->url}}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-              @endif
             </div>
           </div>
         @endforeach
