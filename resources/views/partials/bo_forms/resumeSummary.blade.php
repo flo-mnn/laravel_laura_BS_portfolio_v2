@@ -1,6 +1,15 @@
 <form class="p-5 rounded-0 bg-dark text-light" action="{{ route('resume_summaries.update',['resume_summary' => $resume_summary]) }}" method="POST">
     @csrf
     @method('PATCH')
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="form-group">
       <label for="name" class="text-capitalize">name</label>
       <input type="text" class="form-control rounded-0 bg-light text-warning" id="name" name="name" value="{{old('name') ? old('name') : $resume_summary->title}}">

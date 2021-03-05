@@ -35,6 +35,11 @@ class SocialController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'icon' => 'required|max:50',
+            'url' => 'required|max:500',
+        ]);
+
         $social = new Social();
         $social->icon = $request->icon;
         $social->url = $request->url;
@@ -76,12 +81,17 @@ class SocialController extends Controller
      */
     public function update(Request $request, Social $social)
     {
+        $validated = $request->validate([
+            'icon' => 'required|max:50',
+            'url' => 'required|max:500',
+        ]);
+
         $social->icon = $request->icon;
         $social->url = $request->url;
           
         $social->save();
 
-        return redirect()->back();
+        return redirect('/bo/contact');
     }
 
     /**

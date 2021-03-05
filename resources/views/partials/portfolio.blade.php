@@ -3,9 +3,9 @@
     <div class="container">
 
       <div class="section-title">
-        <span>{{$titles[4]->title}}</span>
-        <h2>{{$titles[4]->title}}</h2>
-        <p>{{$titles[4]->subtitle}}</p>
+        <span>{{$titles[3]->title}}</span>
+        <h2>{{$titles[3]->title}}</h2>
+        <p>{{$titles[3]->subtitle}}</p>
       </div>
 
       <ul id="portfolio-flters" class="d-flex justify-content-center">

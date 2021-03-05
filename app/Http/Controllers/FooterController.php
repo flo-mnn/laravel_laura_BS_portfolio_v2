@@ -35,17 +35,27 @@ class FooterController extends Controller
      */
     public function store(Request $request)
     {
-        $footer = new Footer();
-        $footer->title = $request->title;
-        $footer->subtitle = $request->subtitle;
-        $footer->copyright = $request->copyright;
-        $footer->designed = $request->designed;
-        $footer->link_name = $request->link_name;
-        $footer->link = $request->link;
-        
-        $footer->save();
+        // $validated = $request->validate([
+        //     'title' => 'max:100',
+        //     'subtitle' => 'max:500',
+        //     'copyright' => 'max:300',
+        //     'designed' => 'max:300',
+        //     'link_name' => 'max:300',
+        //     'link' => 'max:700',
+            
+        // ]);
 
-        return redirect()->back();
+        // $footer = new Footer();
+        // $footer->title = $request->title;
+        // $footer->subtitle = $request->subtitle;
+        // $footer->copyright = $request->copyright;
+        // $footer->designed = $request->designed;
+        // $footer->link_name = $request->link_name;
+        // $footer->link = $request->link;
+        
+        // $footer->save();
+
+        // return redirect()->back();
     }
 
     /**
@@ -80,6 +90,15 @@ class FooterController extends Controller
      */
     public function update(Request $request, Footer $footer)
     {
+        $validated = $request->validate([
+            'title' => 'max:100',
+            'subtitle' => 'max:500',
+            'copyright' => 'max:300',
+            'designed' => 'max:300',
+            'link_name' => 'max:300',
+            'link' => 'max:700',
+        ]);
+
         $footer->title = $request->title;
         $footer->subtitle = $request->subtitle;
         $footer->copyright = $request->copyright;
@@ -89,7 +108,7 @@ class FooterController extends Controller
         
         $footer->save();
 
-        return redirect()->back();
+        return redirect('/bo/footer');
     }
 
     /**

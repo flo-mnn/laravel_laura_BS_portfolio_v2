@@ -78,12 +78,25 @@ class PageImageController extends Controller
         //USE THE STORAGE PUBLICLY > CONFIG>FILESYTEM> FILE
         // $request->file('src')->storePublicly('img','public');
         
+
+        $validated = $request->validate([
+            'src' => 'required|image',
+        ]);
+
         // Storage::delete('public/img'.$pageImage->src);
         Storage::put('public/img', $request->file('src'));
         $pageImage->src = $request->file('src')->hashName();
         $pageImage->save();
+        
+        if ($pageImage->id == 1) {
+            return redirect('/bo');
+        } else if ($pageImage->id == 2) {
+            return redirect('/bo/about');
+        } else {
+            return redirect('/bo/footer');
+        }
+        
 
-        return redirect()->back();
     }
 
     /**

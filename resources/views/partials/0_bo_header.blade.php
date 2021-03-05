@@ -7,7 +7,9 @@
         <li class="{{Route::currentRouteName() == "boResume" ? 'active' : null}}"><a href="{{route('boResume')}}">{{$navlinks[2]->link}}</a></li>
         <li class="{{Route::currentRouteName() == "boPortfolio" ? 'active' : null}}"><a href="{{route('boPortfolio')}}">{{$navlinks[3]->link}}</a></li>
         <li class="{{Route::currentRouteName() == "boContact" ? 'active' : null}}"><a href="{{route('boContact')}}">{{$navlinks[4]->link}}</a></li>
-      </ul>
+        <li class="border-left border-light {{Route::currentRouteName() == "boHeader" ? 'active' : null}}"><a href="{{route('boHeader')}}">Header</a></li>
+        <li class="{{Route::currentRouteName() == "boFooter" ? 'active' : null}}"><a href="{{route('boFooter')}}">Footer</a></li>
+      </ul> 
     </nav><!-- .nav-menu -->
 
   </header><!-- End Header -->

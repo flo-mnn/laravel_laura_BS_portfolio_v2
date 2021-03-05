@@ -37,10 +37,10 @@ class AboutDigitalSkillController extends Controller
     {
 
         $validated = $request->validate([
-            'title' => 'max:100',
-            'info' => 'required|max:300',
+            'skill' => 'required|max:100',
+            'percentage' => 'required|numeric|between:0,100',
         ]);
-        
+
         $aboutDigitalSkill = new AboutDigitalSkill();
         $aboutDigitalSkill->skill = $request->skill;
         $aboutDigitalSkill->percentage = $request->percentage;
@@ -81,11 +81,16 @@ class AboutDigitalSkillController extends Controller
      */
     public function update(Request $request, AboutDigitalSkill $aboutDigitalSkill)
     {
+        $validated = $request->validate([
+            'skill' => 'required|max:100',
+            'percentage' => 'required|numeric|between:0,100',
+        ]);
+
         $aboutDigitalSkill->skill = $request->skill;
         $aboutDigitalSkill->percentage = $request->percentage;
         $aboutDigitalSkill->save();
 
-        return redirect()->back();
+        return redirect('/bo/about');
     }
 
     /**

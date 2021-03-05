@@ -35,6 +35,10 @@ class PortfolioFilterController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'filter' => 'max:20',
+        ]);
+
         $portfolioFilter = new PortfolioFilter();
         $portfolioFilter->filter = $request->filter;
     
@@ -75,11 +79,15 @@ class PortfolioFilterController extends Controller
      */
     public function update(Request $request, PortfolioFilter $portfolioFilter)
     {
+        $validated = $request->validate([
+            'filter' => 'max:20',
+        ]);
+
         $portfolioFilter->filter = $request->filter;
     
         $portfolioFilter->save();
 
-        return redirect()->back();
+        return redirect('/bo/portfolio');
     }
 
     /**

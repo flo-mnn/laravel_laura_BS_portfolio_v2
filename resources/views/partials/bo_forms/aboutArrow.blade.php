@@ -1,5 +1,14 @@
 <form class="p-5 rounded-0 bg-dark text-light" action="{{ route('about_arrows.update',['about_arrow' => $about_arrow]) }}" method="POST">
     @csrf
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     @method('PATCH')
     <div class="form-group">
       <label for="title" class="text-capitalize">title</label>

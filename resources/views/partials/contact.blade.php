@@ -3,9 +3,9 @@
     <div class="container">
 
       <div class="section-title">
-        <span>{{$titles[6]->title}}</span>
-        <h2>{{$titles[6]->title}}</h2>
-        <p>{{$titles[6]->subtitle}}</p>
+        <span>{{$titles[4]->title}}</span>
+        <h2>{{$titles[4]->title}}</h2>
+        <p>{{$titles[4]->subtitle}}</p>
       </div>
 
       <div class="row">

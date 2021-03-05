@@ -35,6 +35,14 @@ class EducationController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'required|max:100',
+            'start_date' => 'required|date',
+            'end_date' => 'date',
+            'place' => 'required|max:100',
+            'text' => 'max:500',
+        ]);
+
         $education = new Education();
         $education->title = $request->title;
         $education->start_date = $request->start_date;
@@ -77,6 +85,14 @@ class EducationController extends Controller
      */
     public function update(Request $request, Education $education)
     {
+        $validated = $request->validate([
+            'title' => 'required|max:100',
+            'start_date' => 'required|date',
+            'end_date' => 'date',
+            'place' => 'required|max:100',
+            'text' => 'max:500',
+        ]);
+
         $education->title = $request->title;
         $education->start_date = $request->start_date;
         $education->end_date = $request->end_date;
@@ -84,7 +100,7 @@ class EducationController extends Controller
         $education->text = $request->text;
         $education->save();
 
-        return redirect()->back();
+        return redirect('/bo/resume');
     }
 
     /**

@@ -1,6 +1,15 @@
 <form class="p-5 rounded-0 bg-dark text-light" action="{{ route('portfolio_items.update',['portfolio_item' => $portfolio_item]) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="form-group">
       <label for="title" class="text-capitalize">title</label>
       <input type="text" class="form-control rounded-0 bg-light text-warning" id="title" name="title" value="{{old('title') ? old('title') : $portfolio_item->title}}">

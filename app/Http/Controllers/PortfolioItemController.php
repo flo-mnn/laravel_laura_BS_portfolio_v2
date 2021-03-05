@@ -36,6 +36,13 @@ class PortfolioItemController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'required|max:100',
+            'cover_src' => 'required|image',
+            'filter' => 'required',
+            'url' => 'max:500',
+        ]);
+
         $portfolioItem = new PortfolioItem();
         $portfolioItem->title = $request->title;
         $portfolioItem->cover_src = $request->cover_src;
@@ -80,6 +87,13 @@ class PortfolioItemController extends Controller
      */
     public function update(Request $request, PortfolioItem $portfolioItem)
     {
+        $validated = $request->validate([
+            'title' => 'required|max:100',
+            'cover_src' => 'required|image',
+            'filter' => 'required',
+            'url' => 'max:500',
+        ]);
+
         $portfolioItem->title = $request->title;
         $portfolioItem->cover_src = $request->cover_src;
         $portfolioItem->filter = $request->filter;
@@ -88,7 +102,7 @@ class PortfolioItemController extends Controller
         
         $portfolioItem->save();
 
-        return redirect()->back();
+        return redirect('/bo/portfolio');
     }
 
     /**

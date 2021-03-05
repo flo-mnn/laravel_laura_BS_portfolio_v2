@@ -35,6 +35,10 @@ class PhoneController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'phone' => 'max:30',
+        ]);
+
         $phone = new Phone();
         $phone->phone = $request->phone;
         
@@ -75,12 +79,16 @@ class PhoneController extends Controller
      */
     public function update(Request $request, Phone $phone)
     {
+        $validated = $request->validate([
+            'phone' => 'max:30',
+        ]);
+
         $phone->phone = $request->phone;
         
         
         $phone->save();
 
-        return redirect()->back();
+        return redirect('/bo/contact');
     }
 
     /**

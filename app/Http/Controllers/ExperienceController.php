@@ -35,6 +35,17 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'required|max:100',
+            'start_date' => 'required|date',
+            'end_date' => 'date',
+            'place' => 'required|max:100',
+            'task1' => 'max:500',
+            'task2' => 'max:500',
+            'task3' => 'max:500',
+            'task4' => 'max:500',
+        ]);
+
         $experience = new Experience();
         $experience->title = $request->title;
         $experience->start_date = $request->start_date;
@@ -80,6 +91,17 @@ class ExperienceController extends Controller
      */
     public function update(Request $request, Experience $experience)
     {
+        $validated = $request->validate([
+            'title' => 'required|max:100',
+            'start_date' => 'required|date',
+            'end_date' => 'date',
+            'place' => 'required|max:100',
+            'task1' => 'max:500',
+            'task2' => 'max:500',
+            'task3' => 'max:500',
+            'task4' => 'max:500',
+        ]);
+
         $experience->title = $request->title;
         $experience->start_date = $request->start_date;
         $experience->end_date = $request->end_date;
@@ -90,7 +112,7 @@ class ExperienceController extends Controller
         $experience->task4 = $request->task4;
         $experience->save();
 
-        return redirect()->back();
+        return redirect('/bo/resume');
     }
 
     /**

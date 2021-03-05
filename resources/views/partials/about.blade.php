@@ -36,7 +36,7 @@
               @foreach ($about_numbers as $about_number)
                 <div class="col-md-6 mt-5 d-md-flex align-items-md-stretch">
                   <div class="count-box">
-                    <i class="{{$about_number->icon}}" style="color:{{$about_number->icon_color}};"></i>
+                    <i class="icofont-{{$about_number->icon}}" style="color:{{$about_number->icon_color}};"></i>
                     <span data-toggle="counter-up">{{$about_number->number}}</span>
                     <p><strong>{{$about_number->emphasis}}</strong> {{$about_number->text}}</p>
                   </div>

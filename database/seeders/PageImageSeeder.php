@@ -22,9 +22,6 @@ class PageImageSeeder extends Seeder
                 'src'=>'me.jpg'
             ],
             [
-                'src'=>'testimonials-bg.jpg'
-            ],
-            [
                 'src'=>'footer-bg.jpg'
             ]
         ]);

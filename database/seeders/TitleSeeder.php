@@ -28,15 +28,7 @@ class TitleSeeder extends Seeder
                 "subtitle"=>'Sit sint consectetur velit quisquam cupiditate impedit suscipit alias',
             ],
             [
-                "title"=>'my services',
-                "subtitle"=>'Sit sint consectetur velit quisquam cupiditate impedit suscipit alias',
-            ],
-            [
                 "title"=>'my portfolio',
-                "subtitle"=>'Sit sint consectetur velit quisquam cupiditate impedit suscipit alias',
-            ],
-            [
-                "title"=>'pricing',
                 "subtitle"=>'Sit sint consectetur velit quisquam cupiditate impedit suscipit alias',
             ],
             [

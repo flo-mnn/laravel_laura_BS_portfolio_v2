@@ -70,11 +70,15 @@ class ResumeSubtitleController extends Controller
      */
     public function update(Request $request, ResumeSubtitle $resumeSubtitle)
     {
+        $validated = $request->validate([
+            'title' => 'required|max:50',
+        ]);
+
         $resumeSubtitle->title = $request->title;
           
         $resumeSubtitle->save();
 
-        return redirect()->back();
+        return redirect('/bo/resume');
     }
 
     /**

@@ -70,6 +70,14 @@ class ResumeSummaryController extends Controller
      */
     public function update(Request $request, ResumeSummary $resumeSummary)
     {
+        $validated = $request->validate([
+            'name' => 'required|max:100',
+            'text' => 'required|max:1500',
+            'address' => 'max:200',
+            'phone' => 'max:40',
+            'email' => 'email|max:100',
+        ]);
+
         $resumeSummary->name = $request->name;
         $resumeSummary->text = $request->text;
         $resumeSummary->address = $request->address;
@@ -78,7 +86,7 @@ class ResumeSummaryController extends Controller
           
         $resumeSummary->save();
 
-        return redirect()->back();
+        return redirect('/bo/resume');
     }
 
     /**

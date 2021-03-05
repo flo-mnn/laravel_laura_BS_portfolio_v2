@@ -69,12 +69,28 @@ class TitleController extends Controller
      */
     public function update(Request $request, Title $title)
     {
+        $validated = $request->validate([
+            'title' => 'required|max:300',
+            'subtitle' => 'max:1000',
+        ]);
+
         $title->title = $request->title;
         $title->subtitle = $request->subtitle;
           
         $title->save();
+        
+        if ($title->id == 1) {
+            return redirect('/bo');
+        } else if ($title->id == 2) {
+            return redirect('/bo/about');
+        } else if ($title->id == 3) {
+            return redirect('/bo/resume');
+        } else if ($title->id == 4) {
+            return redirect('/bo/portfolio');
+        } else {
+            return redirect('/bo/contact');
+        }
 
-        return redirect()->back();
     }
 
     /**

@@ -35,6 +35,10 @@ class EmailController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'email' => 'email|max:200',
+        ]);
+
         $email = new Email();
         $email->email = $request->email;
         $email->save();
@@ -73,10 +77,14 @@ class EmailController extends Controller
      */
     public function update(Request $request, Email $email)
     {
+        $validated = $request->validate([
+            'email' => 'email|max:200',
+        ]);
+
         $email->email = $request->email;
         $email->save();
 
-        return redirect()->back();
+        return redirect('/bo/contact');
     }
 
     /**

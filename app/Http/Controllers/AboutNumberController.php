@@ -35,6 +35,14 @@ class AboutNumberController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'icon' => 'required|max:100',
+            'icon_color' => 'required|max:100',
+            'number' => 'required|numeric',
+            'emphasis' => 'required|max:40',
+            'text' => 'max:500',
+        ]);
+
         $aboutNumber = new AboutNumber();
         $aboutNumber->icon = $request->icon;
         $aboutNumber->icon_color = $request->icon_color;
@@ -77,6 +85,14 @@ class AboutNumberController extends Controller
      */
     public function update(Request $request, AboutNumber $aboutNumber)
     {
+        $validated = $request->validate([
+            'icon' => 'required|max:100',
+            'icon_color' => 'required|max:100',
+            'number' => 'required|numeric',
+            'emphasis' => 'required|max:40',
+            'text' => 'max:500',
+        ]);
+
         $aboutNumber->icon = $request->icon;
         $aboutNumber->icon_color = $request->icon_color;
         $aboutNumber->number = $request->number;
@@ -84,7 +100,7 @@ class AboutNumberController extends Controller
         $aboutNumber->text = $request->text;
         $aboutNumber->save();
 
-        return redirect()->back();
+        return redirect('/bo/about');
     }
 
     /**
