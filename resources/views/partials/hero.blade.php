@@ -2,7 +2,7 @@
 <section id="hero" style="background-image: url('storage/img/{{$page_images[0]->src}}');">
     <div class="hero-container">
       @if (Str::contains((Route::getCurrentRoute()->uri()),'bo'))
-          <h1 class="text-{{$color->color}} mb-5">Welcome in your back office</h1>
+          <h1 class="mb-5">Welcome in your back office</h1>
       @endif
       <h1>{{$titles[0]->title}}</h1>
       <h2>{{$titles[0]->subtitle}}</h2>

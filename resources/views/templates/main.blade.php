@@ -37,7 +37,75 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-
+  <style type="text/css">
+    a {
+      color:{{$color->color}};
+    }
+    a:hover {
+      /* color: #ffc85a; */
+      color: {{$color->color}};
+    }
+    .back-to-top i {
+      background-color: {{$color->color}};
+    }
+    .back-to-top i:hover {
+      /* background: #ffc550; */
+      background:{{$color->color}};
+    }
+    .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+      color: {{$color->color}};
+    }
+    .mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
+      color: {{$color->color}};
+    }
+    #hero .btn-scroll:hover {
+      color: {{$color->color}};
+    }
+    .about .content ul i {
+      color: {{$color->color}};
+    }
+    .about .content .count-box i {
+      color: {{$color->color}};
+    }
+    .about .skills-content .progress-bar {
+      background-color: {{$color->color}};
+    }
+    .resume .resume-item h4 {
+      color: {{$color->color}};
+    }
+    .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active{
+      /* color: #f3a200;  */
+      color: {{$color->color}}; 
+      border-color: {{$color->color}};
+    }
+    .portfolio-details .portfolio-details-carousel .owl-dot.active {
+      background-color: {{$color->color}} !important;
+    }
+    .contact .info-box i.bx {
+      color: {{$color->color}};
+    }
+    .contact .social-links a:hover {
+      border-color: {{$color->color}};
+      background: {{$color->color}};
+    }
+    .contact .php-email-form input::focus, .contact .php-email-form textarea::focus {
+      background-color: {{$color->color}};
+    }
+    .contact .php-email-form button[type="submit"] {
+      background: {{$color->color}};
+    }
+    .contact .php-email-form button[type="submit"]:hover {
+      /* background: #ffc85a; */
+      background: {{$color->color}};
+    }
+    #footer .social-links a {
+      background: {{$color->color}};
+    }
+    #footer .social-links a:hover {
+      /* background: #f3a200; */
+      background: {{$color->color}};
+    }
+  </style>
   <body style="{{Str::contains(Route::getCurrentRoute()->uri(), 'edit')? 'background-color: #343A40;' : null}}">
     @if (Str::contains((Route::getCurrentRoute()->uri()),'bo') || (Str::contains((Route::getCurrentRoute()->uri()),'edit')))
       @if (Str::contains((Route::getCurrentRoute()->uri()),'bo/') || Route::getCurrentRoute()->uri()== "bo")
@@ -55,7 +123,7 @@
       @include('partials.footer')
     @endif
    
-  <a href="#" class="back-to-top"><i class="icofont-simple-up bg-{{$color->color}}"></i></a>
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>

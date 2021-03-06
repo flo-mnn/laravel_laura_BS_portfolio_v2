@@ -70,6 +70,7 @@ class ColorController extends Controller
     public function update(Request $request, Color $color)
     {
         $color->color = $request->color;
+        $color->colorHex = $request->colorHex;
         $color->save();
 
         return redirect()->back();

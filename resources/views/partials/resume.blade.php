@@ -12,7 +12,7 @@
         <div class="col-lg-6">
           <h3 class="resume-title">{{$resume_subtitles[0]->title}}</h3>
           <div class="resume-item pb-0">
-            <h4 class="text-{{$color->color}}">{{$resume_summaries->name}}</h4>
+            <h4>{{$resume_summaries->name}}</h4>
             <p><em>{{$resume_summaries->text}}</em></p>
             <p>
             <ul>
@@ -25,7 +25,7 @@
           <h3 class="resume-title">{{$resume_subtitles[1]->title}}</h3>
           @for ($i = count($education)-1; $i >= 0; $i--)
             <div class="resume-item">
-              <h4 class="text-{{$color->color}}">{{$education[$i]->title}}</h4>
+              <h4>{{$education[$i]->title}}</h4>
               <h5>{{$education[$i]->start_date}} {{$education[$i]->end_date? ($education[$i]->end_date != $education[$i]->start_date ? '-'.$education[$i]->end_date : null) : '- Present'}}</h5>
               <p><em>{{$education[$i]->place}}</em></p>
               <p>{{$education[$i]->text}}</p>
@@ -36,7 +36,7 @@
           <h3 class="resume-title">{{$resume_subtitles[2]->title}}</h3>
           @for ($i = count($experiences)-1; $i >=0 ; $i--)
             <div class="resume-item">
-              <h4 class="text-{{$color->color}}">{{$experiences[$i]->title}}</h4>
+              <h4>{{$experiences[$i]->title}}</h4>
               <h5>{{$experiences[$i]->start_date}} {{$experiences[$i]->end_date? ($experiences[$i]->end_date != $experiences[$i]->start_date ? '-'.$experiences[$i]->end_date: null) : '- Present'}}</h5>
               <p><em>{{$experiences[$i]->place}} </em></p>
               <p>

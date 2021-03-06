@@ -15,7 +15,8 @@ class ColorSeeder extends Seeder
     public function run()
     {
         DB::table('colors')->insert([
-            'color'=>'warning'
+            'color'=>'warning',
+            'colorHex'=>'warning'
         ]);
     }
 }

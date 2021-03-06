@@ -11,9 +11,9 @@
       <ul id="portfolio-flters" class="d-flex justify-content-center">
         @foreach ($portfolio_filters as $portfolio_filter)
             @if ($loop->iteration == 1)  
-              <li data-filter="*" class="filter-active {{$color->color}}">{{$portfolio_filter->filter}}</li>
+              <li data-filter="*" class="filter-active">{{$portfolio_filter->filter}}</li>
             @else
-              <li data-filter=".filter-{{$portfolio_filter->filter}}" class="text-capitalize {{$color->color}}">{{$portfolio_filter->filter}}</li>  
+              <li data-filter=".filter-{{$portfolio_filter->filter}}" class="text-capitalize">{{$portfolio_filter->filter}}</li>  
             @endif
         @endforeach
       </ul>
