@@ -91,5 +91,24 @@
                 </tbody>
             </table>
         </div>
+        <div class="mt-5">
+            <h1 class="bo" style="color: {{$color->color}}">Background Image</h1>
+            <table class="table table-striped table-dark">
+                <thead class="thead-{{$color->color}}">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Image</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">#</th>
+                    <td><img src="/storage/img/{{$page_images[2]->src}}" height="300"></td>
+                    <td><a href="{{route('page_images.edit',['page_image' => $page_images[2]->id])}}" class="btn rounded-0 text-light" style="background-color: {{$color->color}}">edit</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 @endsection
