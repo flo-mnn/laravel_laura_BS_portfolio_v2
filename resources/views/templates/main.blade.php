@@ -42,21 +42,34 @@
       color:{{$color->color}};
     }
     a:hover {
-      /* color: #ffc85a; */
       color: {{$color->color}};
     }
     .back-to-top i {
       background-color: {{$color->color}};
     }
+    .back-to-top i {
+      color: white;
+    }
     .back-to-top i:hover {
+      background:{{$color->color_effects}};
       /* background: #ffc550; */
-      background:{{$color->color}};
+    }
+    .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+      /* color: #ffc85a; */
+      color: {{$color->color_effects}};
     }
     .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
       color: {{$color->color}};
     }
     .mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
       color: {{$color->color}};
+    }
+    #to-your-site {
+      color: white;
+      font-family: "Satisfy",serif;
+    }
+    #to-your-site:hover {
+      color: {{$color->color_effects}};
     }
     #hero .btn-scroll:hover {
       color: {{$color->color}};
@@ -74,12 +87,17 @@
       color: {{$color->color}};
     }
     .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active{
+      color: {{$color->color_effects}};
       /* color: #f3a200;  */
-      color: {{$color->color}}; 
+    }
+    .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active{
       border-color: {{$color->color}};
     }
     .portfolio-details .portfolio-details-carousel .owl-dot.active {
       background-color: {{$color->color}} !important;
+    }
+    .portfolio .portfolio-item .portfolio-info .preview-link:hover, .portfolio .portfolio-item .portfolio-info .details-link:hover {
+      color: {{$color->color_effects}};
     }
     .contact .info-box i.bx {
       color: {{$color->color}};
@@ -95,15 +113,15 @@
       background: {{$color->color}};
     }
     .contact .php-email-form button[type="submit"]:hover {
+      background: {{$color->color_effects}};
       /* background: #ffc85a; */
-      background: {{$color->color}};
     }
     #footer .social-links a {
       background: {{$color->color}};
     }
     #footer .social-links a:hover {
+      background: {{$color->color_effects}};
       /* background: #f3a200; */
-      background: {{$color->color}};
     }
   </style>
   <body style="{{Str::contains(Route::getCurrentRoute()->uri(), 'edit')? 'background-color: #343A40;' : null}}">

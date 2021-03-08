@@ -196,6 +196,9 @@
 // added for color theme
 let colorInput = document.querySelector('#themeColorInput');
 let colorInputRGB = document.querySelector('#themeColorInputRGB');
+let colorInputRGBHover = document.querySelector('#themeColorInputRGBHover');
+let regularRGBLabel = document.querySelector('#regularRGBLabel');
+let hoverRGBLabel = document.querySelector('#hoverRGBLabel');
 function hexToRGB() {
   let r = 0, g = 0, b = 0;
   let h = colorInput.value;
@@ -214,3 +217,17 @@ function hexToRGB() {
   
   return colorInputRGB.value="rgb("+ +r + "," + +g + "," + +b + ")";
 }
+
+colorInput.addEventListener('change',function(){
+  let rgb = colorInputRGB.value;
+  regularRGBLabel.style.backgroundColor = `${rgb}`;
+  let hoverRGB = rgb.split(',');
+  let bb = hoverRGB.slice(-1);
+  let newBb = Number(bb[0].slice(0,-1))+50;
+  newBb += ')';
+  console.log(newBb);
+  let newHoverRGB = [hoverRGB[0],hoverRGB[1],newBb];
+  newHoverRGB = newHoverRGB.toString();
+  colorInputRGBHover.value = newHoverRGB;
+  hoverRGBLabel.style.backgroundColor = `${newHoverRGB}`;
+});

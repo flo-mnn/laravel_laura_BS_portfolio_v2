@@ -17,6 +17,7 @@ class CreateColorsTable extends Migration
             $table->id();
             $table->string('color',50);
             $table->string('colorHex',50);
+            $table->string('color_effects',50);
             $table->timestamps();
         });
     }

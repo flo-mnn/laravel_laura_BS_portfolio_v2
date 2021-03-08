@@ -71,6 +71,7 @@ class ColorController extends Controller
     {
         $color->color = $request->color;
         $color->colorHex = $request->colorHex;
+        $color->color_effects = $request->color_effects;
         $color->save();
 
         return redirect()->back();

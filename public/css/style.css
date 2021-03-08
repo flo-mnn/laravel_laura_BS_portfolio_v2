@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #ffc85a;
+  /* color: #ffc85a; */
   text-decoration: none;
 }
 
@@ -923,9 +923,9 @@ section {
   transition: 0.3s;
 }
 
-.portfolio .portfolio-item .portfolio-info .preview-link:hover, .portfolio .portfolio-item .portfolio-info .details-link:hover {
+/* .portfolio .portfolio-item .portfolio-info .preview-link:hover, .portfolio .portfolio-item .portfolio-info .details-link:hover {
   color: #ffc041;
-}
+} */
 
 .portfolio .portfolio-item .portfolio-info .details-link {
   right: 10px;

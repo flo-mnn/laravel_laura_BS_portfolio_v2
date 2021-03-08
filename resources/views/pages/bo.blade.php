@@ -39,56 +39,17 @@
                     <td><form action="/colors/{{$color->id}}" method="POST" id="themeColor" style="font-family: 'Satisfy', serif;">
                         @csrf
                         @method('PATCH')
-                        <input type="text" name="color" id="themeColorInputRGB" value="">
-                        <input type="color" name="colorHex" id="themeColorInput" value="#ffffff" onchange="hexToRGB()">
-                        {{-- <fieldset class="form-group">
-                            <div class="row">
-                              <div class="col-sm-10">
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="color" id="gridRadios1" value="warning">
-                                  <label class="form-check-label text-capitalize text-warning" for="gridRadios1">
-                                    Warning
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="color" id="gridRadios2" value="primary">
-                                  <label class="form-check-label text-capitalize text-primary" for="gridRadios2">
-                                    Primary
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="color" id="gridRadios3" value="danger">
-                                  <label class="form-check-label text-capitalize text-danger" for="gridRadios3">
-                                    Danger
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="color" id="gridRadios3" value="success">
-                                  <label class="form-check-label text-capitalize text-success" for="gridRadios3">
-                                    success
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="color" id="gridRadios3" value="secondary">
-                                  <label class="form-check-label text-capitalize text-secondary" for="gridRadios3">
-                                    secondary
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="color" id="gridRadios3" value="dark">
-                                  <label class="form-check-label text-capitalize text-dark" for="gridRadios3">
-                                    dark
-                                  </label>
-                                </div>
-                                <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="color" id="gridRadios3" value="info">
-                                  <label class="form-check-label text-capitalize text-info" for="gridRadios3">
-                                    info
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                          </fieldset> --}}
+                        <div class="form-group">
+                          <label for="themeColorInputRGB" id="regularRGBLabel">Regular Color</label>
+                          <input type="text" name="color" id="themeColorInputRGB" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="themeColorInputRGBHover" id="hoverRGBLabel">Effects Color</label>
+                            <input type="text" name="color_effects" id="themeColorInputRGBHover" value="">
+                        </div>
+                        <div class="form-group">
+                          <input type="color" name="colorHex" id="themeColorInput" value="{{$color->colorHex}}" onchange="hexToRGB()">
+                        </div>
                     </form></td>
                     <td><input type="submit" form="themeColor" value="change" class="btn rounded-0 text-white" style="background-color: {{$color->color}}"></td>
                 </tr>

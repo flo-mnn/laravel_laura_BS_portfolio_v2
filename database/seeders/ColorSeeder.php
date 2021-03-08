@@ -16,7 +16,8 @@ class ColorSeeder extends Seeder
     {
         DB::table('colors')->insert([
             'color'=>'rgb(255,183,39)',
-            'colorHex'=>'#ffb727'
+            'colorHex'=>'#ffb727',
+            'color_effects'=>'#ffc85a',
         ]);
     }
 }
