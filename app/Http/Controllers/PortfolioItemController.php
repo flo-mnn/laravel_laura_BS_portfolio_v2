@@ -40,7 +40,7 @@ class PortfolioItemController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:100',
             'cover_src' => 'required|image',
-            'filter' => 'required',
+            'filter_id' => 'required',
             'url' => 'max:500',
         ]);
 
@@ -48,7 +48,7 @@ class PortfolioItemController extends Controller
         $portfolioItem->title = $request->title;
         Storage::put('public/img/', $request->file('cover_src'));
         $portfolioItem->cover_src = $request->file('cover_src')->hashName();
-        $portfolioItem->filter = $request->filter;
+        $portfolioItem->filter_id = $request->filter_id;
         $portfolioItem->url = $request->url;
         
         
@@ -92,7 +92,7 @@ class PortfolioItemController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:100',
             'cover_src' => 'required|image',
-            'filter' => 'required',
+            'filter_id' => 'required',
             'url' => 'max:500',
         ]);
 
@@ -100,7 +100,7 @@ class PortfolioItemController extends Controller
         Storage::delete('public/img/'.$portfolioItem->cover_src);
         Storage::put('public/img/', $request->file('cover_src'));
         $portfolioItem->cover_src = $request->file('cover_src')->hashName();
-        $portfolioItem->filter = $request->filter;
+        $portfolioItem->filter_id = $request->filter_id;
         $portfolioItem->url = $request->url;
         
         

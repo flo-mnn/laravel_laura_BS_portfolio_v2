@@ -37,93 +37,95 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
-  <style type="text/css">
-    a {
-      color:{{$color->color}};
-    }
-    a:hover {
-      color: {{$color->color}};
-    }
-    .back-to-top i {
-      background-color: {{$color->color}};
-    }
-    .back-to-top i {
-      color: white;
-    }
-    .back-to-top i:hover {
-      background:{{$color->color_effects}};
-      /* background: #ffc550; */
-    }
-    .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-      /* color: #ffc85a; */
-      color: {{$color->color_effects}};
-    }
-    .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
-      color: {{$color->color}};
-    }
-    .mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
-      color: {{$color->color}};
-    }
-    #to-your-site {
-      color: white;
-      font-family: "Satisfy",serif;
-    }
-    #to-your-site:hover {
-      color: {{$color->color_effects}};
-    }
-    #hero .btn-scroll:hover {
-      color: {{$color->color}};
-    }
-    .about .content ul i {
-      color: {{$color->color}};
-    }
-    .about .content .count-box i {
-      color: {{$color->color}};
-    }
-    .about .skills-content .progress-bar {
-      background-color: {{$color->color}};
-    }
-    .resume .resume-item h4 {
-      color: {{$color->color}};
-    }
-    .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active{
-      color: {{$color->color_effects}};
-      /* color: #f3a200;  */
-    }
-    .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active{
-      border-color: {{$color->color}};
-    }
-    .portfolio-details .portfolio-details-carousel .owl-dot.active {
-      background-color: {{$color->color}} !important;
-    }
-    .portfolio .portfolio-item .portfolio-info .preview-link:hover, .portfolio .portfolio-item .portfolio-info .details-link:hover {
-      color: {{$color->color_effects}};
-    }
-    .contact .info-box i.bx {
-      color: {{$color->color}};
-    }
-    .contact .social-links a:hover {
-      border-color: {{$color->color}};
-      background: {{$color->color}};
-    }
-    .contact .php-email-form input::focus, .contact .php-email-form textarea::focus {
-      background-color: {{$color->color}};
-    }
-    .contact .php-email-form button[type="submit"] {
-      background: {{$color->color}};
-    }
-    .contact .php-email-form button[type="submit"]:hover {
-      background: {{$color->color_effects}};
-      /* background: #ffc85a; */
-    }
-    #footer .social-links a {
-      background: {{$color->color}};
-    }
-    #footer .social-links a:hover {
-      background: {{$color->color_effects}};
-      /* background: #f3a200; */
-    }
-  </style>
+  @if (Str::contains((Route::getCurrentRoute()->uri()),'edit')==false)
+    <style type="text/css">
+      a {
+        color:{{$color->color}};
+      }
+      a:hover {
+        color: {{$color->color}};
+      }
+      .back-to-top i {
+        background-color: {{$color->color}};
+      }
+      .back-to-top i {
+        color: white;
+      }
+      .back-to-top i:hover {
+        background:{{$color->color_effects}};
+        /* background: #ffc550; */
+      }
+      .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+        /* color: #ffc85a; */
+        color: {{$color->color_effects}};
+      }
+      .nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+        color: {{$color->color}};
+      }
+      .mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
+        color: {{$color->color}};
+      }
+      #to-your-site {
+        color: white;
+        font-family: "Satisfy",serif;
+      }
+      #to-your-site:hover {
+        color: {{$color->color_effects}};
+      }
+      #hero .btn-scroll:hover {
+        color: {{$color->color}};
+      }
+      .about .content ul i {
+        color: {{$color->color}};
+      }
+      .about .content .count-box i {
+        color: {{$color->color}};
+      }
+      .about .skills-content .progress-bar {
+        background-color: {{$color->color}};
+      }
+      .resume .resume-item h4 {
+        color: {{$color->color}};
+      }
+      .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active{
+        color: {{$color->color_effects}};
+        /* color: #f3a200;  */
+      }
+      .portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active{
+        border-color: {{$color->color}};
+      }
+      .portfolio-details .portfolio-details-carousel .owl-dot.active {
+        background-color: {{$color->color}} !important;
+      }
+      .portfolio .portfolio-item .portfolio-info .preview-link:hover, .portfolio .portfolio-item .portfolio-info .details-link:hover {
+        color: {{$color->color_effects}};
+      }
+      .contact .info-box i.bx {
+        color: {{$color->color}};
+      }
+      .contact .social-links a:hover {
+        border-color: {{$color->color}};
+        background: {{$color->color}};
+      }
+      .contact .php-email-form input::focus, .contact .php-email-form textarea::focus {
+        background-color: {{$color->color}};
+      }
+      .contact .php-email-form button[type="submit"] {
+        background: {{$color->color}};
+      }
+      .contact .php-email-form button[type="submit"]:hover {
+        background: {{$color->color_effects}};
+        /* background: #ffc85a; */
+      }
+      #footer .social-links a {
+        background: {{$color->color}};
+      }
+      #footer .social-links a:hover {
+        background: {{$color->color_effects}};
+        /* background: #f3a200; */
+      }
+    </style>
+  @endif
   <body style="{{Str::contains(Route::getCurrentRoute()->uri(), 'edit')? 'background-color: #343A40;' : null}}">
     @if (Str::contains((Route::getCurrentRoute()->uri()),'bo') || (Str::contains((Route::getCurrentRoute()->uri()),'edit')))
       @if (Str::contains((Route::getCurrentRoute()->uri()),'bo/') || Route::getCurrentRoute()->uri()== "bo")
