@@ -1,6 +1,7 @@
 Hi Everyone!
 Please find an example of a laravelised bootstrap theme (designed by BootstrapMade) with its backoffice made for you to change all selected sections (Hero, About, Resume, Portfolio, Contact, Footer). To get into the backoffice, just add "/bo" to the main url.
 Seeders are included, so please feel free to clone/download the zip, run npm i & enter the 'php artisan migrate:fresh' --seed command line to have it all ready as it was designed by BootstrapMade.
+Please note you should have access to images files already, should you encounter any issue while uploading new images for example, please use "php artisan storage:link" and try again.
 
 ------------------------------------
 
