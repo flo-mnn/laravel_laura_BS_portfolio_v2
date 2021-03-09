@@ -1,14 +1,1 @@
-h1.bo {
-    font-family: 'Satisfy',serif;
-}
 
-td>.btn,td>form>.btn,th>form>.btn {
-    font-family: 'Satisfy',serif;
-    font-size: larger;
-}
-
-
-section.edit {
-    height: 100vh;
-    width: 100%;
-}

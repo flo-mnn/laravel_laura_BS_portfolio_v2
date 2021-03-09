@@ -1,3 +1,5 @@
+// added code for bo sortable option
+
 /**
 * Template Name: Laura - v2.2.1
 * Template URL: https://bootstrapmade.com/laura-free-creative-bootstrap-theme/
@@ -193,6 +195,53 @@
 
 })(jQuery);
 
+
+
+// sortable for BO
+// display the sortable
+let changeBtns = document.querySelectorAll('.btn-light');
+
+
+for (let i = 0; i < changeBtns.length; i++) {
+  const element = changeBtns[i];
+  element.addEventListener('click',function(e){
+    e.preventDefault();
+    let table = e.target.closest('table');
+    let allHandles = table.querySelectorAll('.bx-move');
+    let saveOrder = table.querySelector('.save-order');
+    let toggle = e.target.classList.toggle('sorting');
+    if (toggle) {
+      e.target.classList.replace('btn-light','btn-success');
+      e.target.textContent = 'Save Order';
+      for (let i = 0; i < allHandles.length; i++) {
+        const element = allHandles[i];
+        element.classList.remove('d-none');
+      }
+    } else {
+      e.target.classList.replace('btn-success','btn-light');
+      e.target.textContent = 'Change Order';
+      for (let i = 0; i < allHandles.length; i++) {
+        const element = allHandles[i];
+        element.classList.add('d-none');
+      }
+      // form activate to get the new order in DB:
+      saveOrder.click();
+    }
+  })
+}
+
+// to collect new order have a look at sortable library page https://sortablejs.github.io/Sortable/
+// the sortable
+var elements = document.querySelectorAll('tbody');
+for (let i = 0; i < elements.length; i++) {
+  const el = elements[i];
+  new Sortable(el, {
+    animation: 150,
+    handle: '.bx-move',
+    ghostClass: 'blue-background-class'
+  });
+}
+
 // added for color theme
 let colorInput = document.querySelector('#themeColorInput');
 let colorInputRGB = document.querySelector('#themeColorInputRGB');
@@ -218,16 +267,19 @@ function hexToRGB() {
   return colorInputRGB.value="rgb("+ +r + "," + +g + "," + +b + ")";
 }
 
-colorInput.addEventListener('change',function(){
-  let rgb = colorInputRGB.value;
-  regularRGBLabel.style.backgroundColor = `${rgb}`;
-  let hoverRGB = rgb.split(',');
-  let bb = hoverRGB.slice(-1);
-  let newBb = Number(bb[0].slice(0,-1))+50;
-  newBb += ')';
-  console.log(newBb);
-  let newHoverRGB = [hoverRGB[0],hoverRGB[1],newBb];
-  newHoverRGB = newHoverRGB.toString();
-  colorInputRGBHover.value = newHoverRGB;
-  hoverRGBLabel.style.backgroundColor = `${newHoverRGB}`;
-});
+if (window.location.pathname == "/bo") {
+  colorInput.addEventListener('change',function(){
+    let rgb = colorInputRGB.value;
+    regularRGBLabel.style.backgroundColor = `${rgb}`;
+    let hoverRGB = rgb.split(',');
+    let bb = hoverRGB.slice(-1);
+    let newBb = Number(bb[0].slice(0,-1))+50;
+    newBb += ')';
+    console.log(newBb);
+    let newHoverRGB = [hoverRGB[0],hoverRGB[1],newBb];
+    newHoverRGB = newHoverRGB.toString();
+    colorInputRGBHover.value = newHoverRGB;
+    hoverRGBLabel.style.backgroundColor = `${newHoverRGB}`;
+  });
+}
+

@@ -81,7 +81,7 @@
                     @endforeach
                     <tr>
                         <th scope="row"><i class="bx bx-list-plus"></i></th>
-                        <th colspan="4">
+                        <td colspan="4">
                             <form class="p-5 rounded-0 bg-dark text-light" action="/about_arrows" method="POST">
                                 @csrf
                                 <div class="form-group">
@@ -94,15 +94,14 @@
                                 </div>
                                 <button type="submit" style="background-color: {{$color->color}}" class="btn rounded-0 text-light">Add</button>
                             </form>
-                        </th>
-                        <th></th>
+                        </td>
                     </tr>
                     
                 </tbody>
             </table>
         </div>
         <div class="mt-5">
-            <h1 class="text-{{$color->color}} bo">About Numbers</h1>
+            <h1 class="bo">About Numbers</h1>
             <table class="table table-striped table-dark">
                 <thead class="thead-{{$color->color}}">
                 <tr>
@@ -112,14 +111,20 @@
                     <th scope="col">Number</th>
                     <th scope="col">Text First Words</th>
                     <th scope="col">Rest of the Text</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col" colspan="2">
+                        <button class="btn btn-light">Change Order</button>
+                        <form action="/about_numbers/order/" method="POST" class="d-none">
+                        <input type="text" name="order" value="">
+                        {{-- jouer dans le controller sur la condition si request->order null, nothing else something --}}
+                        <button type="submit" class="save-order">save</button>
+                        </form>
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
                     @foreach ($about_numbers as $about_number)
                         <tr>
-                            <th scope="row">{{$loop->iteration}}</th>
+                            <th scope="row"><i class="bx bx-move d-none"></i>{{$loop->iteration}}<span class="d-none entry-id">{{$about_number->id}}</span></th>
                             <td>{{$about_number->icon}}</td>
                             <td>{{$about_number->icon_color}}</td>
                             <td>{{$about_number->number}}</td>
@@ -147,7 +152,7 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="icon_color" class="text-capitalize">icon_color</label>
-                                  <input type="color" class="form-control rounded-0 bg-light" style="color: {{$color->color}}" id="icon_color" name="icon_color" value="{{old('icon_color')}}">
+                                  <input type="color" class="form-control rounded-0 bg-light" style="color: {{$color->color}}" id="icon_color" name="icon_color" value="{{old('icon_color')? old('icon_color') : '#ffffff'}}">
                                 </div>
                                 <div class="form-group">
                                   <label for="number" class="text-capitalize">number</label>
@@ -164,14 +169,13 @@
                                 <button type="submit" style="background-color: {{$color->color}}" class="btn rounded-0 text-light">Add</button>
                             </form>
                         </th>
-                        <th></th>
                         
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="mt-5">
-            <h1 class="text-{{$color->color}} bo">About Digital Skills</h1>
+            <h1 class="bo">About Digital Skills</h1>
             <table class="table table-striped table-dark">
                 <thead class="thead-{{$color->color}}">
                 <tr>
@@ -212,7 +216,6 @@
                                 <button type="submit" class="btn rounded-0 text-light" style="background-color: {{$color->color}}">Add</button>
                             </form>
                         </th>
-                        <th></th>
                     </tr>
                 </tbody>
             </table>

@@ -39,6 +39,13 @@
 </head>
   @if (Str::contains((Route::getCurrentRoute()->uri()),'edit')==false)
     <style type="text/css">
+      .bo {
+        font-family: "Satisfy",serif;
+        color: {{$color->color}};
+      }
+      .bx-move{
+        color: {{$color->color}};
+      }
       a {
         color:{{$color->color}};
       }
@@ -156,9 +163,10 @@
   <script src="{{asset('vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
   <script src="{{asset('vendor/venobox/venobox.min.js')}}"></script>
 
+  {{-- sortable for BO --}}
+  <script src="http://SortableJS.github.io/Sortable/Sortable.js"></script>
   <!-- Template Main JS File -->
   <script src="{{asset('js/main.js')}}"></script>
-
 </body>
 
 </html>
