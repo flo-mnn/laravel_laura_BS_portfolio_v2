@@ -14,7 +14,7 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-              @foreach ($about_arrows as $about_arrow)
+              @foreach ($about_arrows->sortBy('order') as $about_arrow)
                     <li><i class="icofont-rounded-right"></i> <strong>{{$about_arrow->title}}</strong> {{$about_arrow->info}}</li>
                 @if (
                   (count($about_arrows) % 2 === 0 && $loop->iteration == (count($about_arrows)/2))

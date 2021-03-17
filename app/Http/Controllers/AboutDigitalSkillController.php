@@ -44,6 +44,7 @@ class AboutDigitalSkillController extends Controller
         $aboutDigitalSkill = new AboutDigitalSkill();
         $aboutDigitalSkill->skill = $request->skill;
         $aboutDigitalSkill->percentage = $request->percentage;
+        $aboutDigitalSkill->order = count(AboutDigitalSkill::all()) +1;
         $aboutDigitalSkill->save();
 
         return redirect()->back();

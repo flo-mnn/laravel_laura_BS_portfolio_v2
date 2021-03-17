@@ -17,35 +17,43 @@ class AboutArrowSeeder extends Seeder
         DB::table('about_arrows')->insert([
             [
                 "title"=>'Name',
-                "info"=>'Laura Thomson'
+                "info"=>'Laura Thomson',
+                "order"=>1
             ],
             [
                 "title"=>'Website',
-                "info"=>'www.example.com'
+                "info"=>'www.example.com',
+                "order"=>2
             ],
             [
                 "title"=>'Phone',
-                "info"=>'+123 456 7890'
+                "info"=>'+123 456 7890',
+                "order"=>3
             ],
             [
                 "title"=>'City',
-                "info"=>'New-York, USA'
+                "info"=>'New-York, USA',
+                "order"=>4
             ],
             [
                 "title"=>'Age',
-                "info"=>'30'
+                "info"=>'30',
+                "order"=>5
             ],
             [
                 "title"=>'Degree',
-                "info"=>'Master'
+                "info"=>'Master',
+                "order"=>6
             ],
             [
                 "title"=>'Email',
-                "info"=>'email@example.com'
+                "info"=>'email@example.com',
+                "order"=>7
             ],
             [
                 "title"=>'Freelance',
-                "info"=>'available'
+                "info"=>'available',
+                "order"=>8
             ]
         ]);
     }

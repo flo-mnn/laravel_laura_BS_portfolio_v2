@@ -17,6 +17,7 @@ class CreateAboutArrowsTable extends Migration
             $table->id();
             $table->string('title',100)->nullable();
             $table->string('info',300);
+            $table->integer('order');
             $table->timestamps();
         });
     }

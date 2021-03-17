@@ -43,6 +43,7 @@ class AboutArrowController extends Controller
         $arrow = new AboutArrow;
         $arrow->title = $request->title;
         $arrow->info = $request->info;
+        $arrow->order = count(AboutArrow::all()) +1;
         $arrow->save();
 
         return redirect()->back();
@@ -102,6 +103,21 @@ class AboutArrowController extends Controller
     {
         $aboutArrow->delete();
 
+        return redirect()->back();
+    }
+    public function order(Request $request)
+    {
+        if ($request->order) {
+            $ids = explode("/", $request->order);
+            for ($i=0; $i < count($ids) ; $i++) { 
+                $toOrder = $ids[$i];
+                $itemDB = AboutArrow::find($toOrder);
+                $itemDB->order = $i;
+                $itemDB->save();
+            }
+        }
+
+        // use a new order column & helper sortby (already added in web.php)
         return redirect()->back();
     }
 }
