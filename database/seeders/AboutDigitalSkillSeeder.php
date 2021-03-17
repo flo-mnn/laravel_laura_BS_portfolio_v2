@@ -17,15 +17,18 @@ class AboutDigitalSkillSeeder extends Seeder
         DB::table('about_digital_skills')->insert([
             [
                 'skill'=>'HTML',
-                'percentage'=>100
+                'percentage'=>100,
+                'order'=>1
             ],
             [
                 'skill'=>'CSS',
-                'percentage'=>90
+                'percentage'=>90,
+                'order'=>2
             ],
             [
                 'skill'=>'JAVASCRIPT',
-                'percentage'=>75
+                'percentage'=>75,
+                'order'=>3
             ]
         ]);
     }

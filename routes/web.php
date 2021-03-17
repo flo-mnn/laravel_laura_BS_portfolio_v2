@@ -142,6 +142,7 @@ Route::get('/bo/resume',function(){
 
 // order change
 Route::post('/about_numbers/order/', [AboutNumberController::class,'order']);
+Route::post('/about_digital_skills/order/', [AboutDigitalSkillController::class,'order']);
 
 // ressources
 Route::resource('about_arrows', AboutArrowController::class);

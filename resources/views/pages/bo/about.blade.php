@@ -125,7 +125,7 @@
                 <tbody>
                     @foreach ($about_numbers as $about_number)
                         <tr>
-                            <th scope="row"><i class="bx bx-move d-none"></i><span class="order d-none">{{$about_number->id}}</span></th>
+                            <th scope="row"><i class="bx bx-move d-none"></i><span class="order d-none">{{$about_number->id}}</span><span>{{$loop->iteration}}</span></th>
                             <td>{{$about_number->icon}}</td>
                             <td>{{$about_number->icon_color}}</td>
                             <td>{{$about_number->number}}</td>
@@ -183,14 +183,21 @@
                     <th scope="col">#</th>
                     <th scope="col">Info Title</th>
                     <th scope="col">Info</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col" colspan="2">
+                        <button class="btn btn-light">Change Order</button>
+                        <form action="/about_digital_skills/order/" method="POST" class="d-none">
+                            @csrf
+                        <input type="text" name="order" value="" id="orderInput">
+                        {{-- jouer dans le controller sur la condition si request->order null, nothing else something --}}
+                        <button type="submit" class="save-order">save</button>
+                        </form>
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach ($about_digital_skills as $about_digital_skill)
+                    @foreach ($about_digital_skills->sortBy('order') as $about_digital_skill)
                         <tr>
-                            <th scope="row">{{$loop->iteration}}</th>
+                            <th scope="row"><i class="bx bx-move d-none"></i><span class="order d-none">{{$about_digital_skill->id}}</span><span>{{$loop->iteration}}</span></th>
                             <td>{{$about_digital_skill->skill}}</td>
                             <td>{{$about_digital_skill->percentage}}</td>
                             <td><a href="{{route('about_digital_skills.edit',['about_digital_skill' => $about_digital_skill])}}" style="background-color: {{$color->color}}" class="btn rounded-0 text-light">edit</a></td>

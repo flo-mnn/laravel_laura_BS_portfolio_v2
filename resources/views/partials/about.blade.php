@@ -47,7 +47,7 @@
           </div><!-- End .content-->
 
           <div class="skills-content pl-lg-4">
-            @foreach ($about_digital_skills as $about_digital_skill)
+            @foreach ($about_digital_skills->sortBy('order') as $about_digital_skill)
               <div class="progress">
                 <span class="skill">{{$about_digital_skill->skill}} <i class="val">{{$about_digital_skill->percentage}}%</i></span>
                 <div class="progress-bar-wrap">

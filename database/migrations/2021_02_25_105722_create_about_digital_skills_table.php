@@ -17,6 +17,7 @@ class CreateAboutDigitalSkillsTable extends Migration
             $table->id();
             $table->string('skill',100);
             $table->integer('percentage');
+            $table->integer('order');
             $table->timestamps();
         });
     }
