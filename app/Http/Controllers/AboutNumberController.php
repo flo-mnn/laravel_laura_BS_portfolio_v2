@@ -49,6 +49,7 @@ class AboutNumberController extends Controller
         $aboutNumber->number = $request->number;
         $aboutNumber->emphasis = $request->emphasis;
         $aboutNumber->text = $request->text;
+        $aboutNumber->order = count(AboutNumber::all()) +1;
         $aboutNumber->save();
 
         return redirect()->back();
@@ -125,15 +126,6 @@ class AboutNumberController extends Controller
                 $itemDB->order = $i;
                 $itemDB->save();
             }
-
-            // $aboutNumbers = AboutNumber::all()->sortBy('order');
-            // $compt = 0;
-            // foreach ($aboutNumbers as $aboutNumber) {
-            //     $aboutNumberItem = AboutNumber::find($aboutNumber->id);
-            //     $aboutNumberItem->order = $ids[$compt];
-            //     $compt ++; 
-            //     $aboutNumberItem->save();
-            // };
         }
 
         // use a new order column & helper sortby (already added in web.php)
