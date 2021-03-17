@@ -20,6 +20,7 @@ class CreateAboutNumbersTable extends Migration
             $table->integer('number');
             $table->string('emphasis',40);
             $table->string('text',500)->nullable();
+            $table->integer('order');
             $table->timestamps();
         });
     }

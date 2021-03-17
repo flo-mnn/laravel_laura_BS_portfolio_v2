@@ -200,16 +200,32 @@
 // sortable for BO
 // display the sortable
 let changeBtns = document.querySelectorAll('.btn-light');
+var table;
+var orderInput;
 
+let updateOrderValue = () => {
+  let orderId = table.querySelectorAll('.order');
+      let allIds = [];
+      for (let i = 0; i < orderId.length; i++) {
+        const element = orderId[i];
+        let id = Number(element.textContent);
+        allIds.push(id);
+      };
+      console.log(allIds);
+      orderInput.value = allIds.join('/');
+      console.log(orderInput.value);
+};
 
 for (let i = 0; i < changeBtns.length; i++) {
   const element = changeBtns[i];
   element.addEventListener('click',function(e){
     e.preventDefault();
-    let table = e.target.closest('table');
+    table = e.target.closest('table');
     let allHandles = table.querySelectorAll('.bx-move');
     let saveOrder = table.querySelector('.save-order');
     let toggle = e.target.classList.toggle('sorting');
+    orderInput = table.querySelector('#orderInput');
+    // updateOrderValue();
     if (toggle) {
       e.target.classList.replace('btn-light','btn-success');
       e.target.textContent = 'Save Order';
@@ -232,13 +248,16 @@ for (let i = 0; i < changeBtns.length; i++) {
 
 // to collect new order have a look at sortable library page https://sortablejs.github.io/Sortable/
 // the sortable
+
 var elements = document.querySelectorAll('tbody');
 for (let i = 0; i < elements.length; i++) {
   const el = elements[i];
   new Sortable(el, {
     animation: 150,
     handle: '.bx-move',
-    ghostClass: 'blue-background-class'
+    ghostClass: 'blue-background-class',
+    onEnd: updateOrderValue,
+    onStart: updateOrderValue,
   });
 }
 

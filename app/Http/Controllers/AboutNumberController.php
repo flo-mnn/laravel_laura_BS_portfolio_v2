@@ -115,4 +115,28 @@ class AboutNumberController extends Controller
 
         return redirect()->back();
     }
+    public function order(Request $request)
+    {
+        if ($request->order) {
+            $ids = explode("/", $request->order);
+            for ($i=0; $i < count($ids) ; $i++) { 
+                $toOrder = $ids[$i];
+                $itemDB = AboutNumber::find($toOrder);
+                $itemDB->order = $i;
+                $itemDB->save();
+            }
+
+            // $aboutNumbers = AboutNumber::all()->sortBy('order');
+            // $compt = 0;
+            // foreach ($aboutNumbers as $aboutNumber) {
+            //     $aboutNumberItem = AboutNumber::find($aboutNumber->id);
+            //     $aboutNumberItem->order = $ids[$compt];
+            //     $compt ++; 
+            //     $aboutNumberItem->save();
+            // };
+        }
+
+        // use a new order column & helper sortby (already added in web.php)
+        return redirect()->back();
+    }
 }

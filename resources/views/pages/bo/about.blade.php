@@ -114,7 +114,8 @@
                     <th scope="col" colspan="2">
                         <button class="btn btn-light">Change Order</button>
                         <form action="/about_numbers/order/" method="POST" class="d-none">
-                        <input type="text" name="order" value="">
+                            @csrf
+                        <input type="text" name="order" value="" id="orderInput">
                         {{-- jouer dans le controller sur la condition si request->order null, nothing else something --}}
                         <button type="submit" class="save-order">save</button>
                         </form>
@@ -124,7 +125,7 @@
                 <tbody>
                     @foreach ($about_numbers as $about_number)
                         <tr>
-                            <th scope="row"><i class="bx bx-move d-none"></i>{{$loop->iteration}}<span class="d-none entry-id">{{$about_number->id}}</span></th>
+                            <th scope="row"><i class="bx bx-move d-none"></i><span class="order d-none">{{$about_number->id}}</span></th>
                             <td>{{$about_number->icon}}</td>
                             <td>{{$about_number->icon_color}}</td>
                             <td>{{$about_number->number}}</td>

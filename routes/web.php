@@ -52,7 +52,7 @@ Route::get('/', function () {
     return view('welcome', [
         'about_arrows'=>AboutArrow::all(),
         'about_digital_skills'=>AboutDigitalSkill::all(),
-        'about_numbers'=>AboutNumber::all(),
+        'about_numbers'=>AboutNumber::all()->sortBy('order'),
         'contact_cards_heads'=>ContactCardsHead::all(),
         'education'=>Education::all(),
         'emails'=>Email::all(),
@@ -86,7 +86,7 @@ Route::get('/bo/about',function(){
         'navlinks'=>Navlink::all(),
         'about_arrows'=>AboutArrow::all(),
         'about_digital_skills'=>AboutDigitalSkill::all(),
-        'about_numbers'=>AboutNumber::all(),
+        'about_numbers'=>AboutNumber::all()->sortBy('order'),
         'page_images'=>PageImage::all(),
         'titles'=>Title::all(),
         'color'=>Color::first(),
@@ -140,6 +140,8 @@ Route::get('/bo/resume',function(){
     ]);
 })->name('boResume');
 
+// order change
+Route::post('/about_numbers/order/', [AboutNumberController::class,'order']);
 
 // ressources
 Route::resource('about_arrows', AboutArrowController::class);
